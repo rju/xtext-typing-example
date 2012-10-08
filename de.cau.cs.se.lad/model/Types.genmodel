@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/de.cau.cs.se.lad/model-gen" modelPluginID="de.cau.cs.se.lad"
+    modelName="Types" importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0"
+    copyrightFields="false">
+  <foreignModel>Types.ecore</foreignModel>
+  <genPackages prefix="Types" basePackage="de.cau.cs.se.lad" disposableProviderFactory="true"
+      ecorePackage="Types.ecore#/">
+    <genClasses ecoreClass="Types.ecore#//Type">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Types.ecore#//Type/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Types.ecore#//PrimitiveType"/>
+    <genClasses ecoreClass="Types.ecore#//UserType"/>
+    <genClasses ecoreClass="Types.ecore#//ArrayType">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Types.ecore#//ArrayType/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Types.ecore#//ArrayType/size"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

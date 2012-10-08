@@ -1,0 +1,36 @@
+service MailService (String uri) {
+	String[] listFolder (String parent) 
+		return json(get(uri + "/" + parent + "/")) or null 
+	Mail getMail (String path)
+		return json(get(uri + "/" + path)) or null
+	Result putMail (String path, Mail mail)
+		return put(uri + "/" + path , json(mail)) 
+}
+
+class Node {
+	String label;
+}
+class Folder extends Node {
+	Node[] contents;
+}
+class Mail extends Node {
+	String sender;
+	String[] tos;
+	String[] ccs;
+	String content;
+	String[] attachments;
+}
+
+model {
+	new MailService service;
+	new Folder folder;
+	folder.label = "Mails";
+}
+
+view MailView {
+	size < 100%, 100% >;
+	tree-list Folder,Mail folder;
+	init: contents=service.listFolder(current);
+	expand: contents=service.listFolder(current);
+	reload: contents=service.listFolder(current);
+}
