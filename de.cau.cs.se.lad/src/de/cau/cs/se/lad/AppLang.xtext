@@ -1,0 +1,175 @@
+grammar de.cau.cs.se.lad.AppLang with org.eclipse.xtext.common.Terminals
+
+import "platform:/resource/de.cau.cs.se.lad/model/Types.ecore" as types
+
+generate appLang "http://www.cau.de/cs/se/lad/AppLang"
+
+Model:
+	(services+=Service | views+=View | classes+=Class)*
+	model=DataModel
+;
+
+Class returns types::ClassType:
+	'class' name=ID ('extends' parent=[types::ClassType|ID])? '{'
+		properties+=Property
+	'}'
+;
+
+Service:
+	'service' name=ID '(' configurations+=Property (',' configurations+=Property)*  ')' '{'
+		operations+=Operation
+	'}'
+;
+
+Operation:
+	type=[types::Type] name=ID '(' parameters+=Property (',' parameters+=Property)* ')'
+		'return' expression=Expression
+;
+
+Expression:
+	BaseExpression ({Expression.left=current} 'or' right=BaseExpression)?
+;
+
+BaseExpression:
+	Function | NullLiteral | StringExpression
+;
+
+StringExpression:
+	StringValue ({StringExpression.left=current} '+' right=StringValue)*
+;
+
+StringValue:
+	StringLiteral | StringProperty
+;
+
+StringProperty:
+	reference=[types::Property|ID]
+;
+
+
+StringLiteral:
+	literal=STRING
+;
+
+NullLiteral: {NullLiteral}
+	'null'
+;
+
+
+Function:
+	type=FunctionEnum '(' expressions+=Expression (',' expressions+=Expression)* ')'
+;
+
+enum FunctionEnum:
+	DECODE = 'decode' |
+	ENCODE = 'encode' |
+	GET = 'get' |
+	PUT = 'put'
+;
+
+Property returns types::Property:
+	type=[types::Type] name=ID
+;
+
+DataModel: {DataModel}
+	'model' '{'
+		instances+=Instance*
+		// only instances of view types
+		'start' view=[Instance|ID] ';'
+	'}'
+;
+
+Instance:
+	ArrayInstance | SimpleInstance
+;
+
+ArrayInstance:
+	'new' type=ArrayType name=ID ';'
+;
+
+SimpleInstance:
+	'new' type=[types::Type] name=ID ';'
+;
+
+ArrayType returns types::Type: {types::ArrayType}
+	type=[types::Type|ID] '[' (size=INT)? ']'
+;
+
+View:
+	'view' name=ID '{'
+		layout=Layout
+		contents+=ViewContent*
+	'}'
+;
+
+ViewContent:
+	ViewElement | ViewContainer
+;
+
+ViewContainer:
+	'container' '{'
+		layout=Layout
+		contents+=ViewContent*
+	'}'
+;
+
+
+ViewElement:
+	type=ViewType name=ID '{'
+		
+	'}' 
+;
+
+enum ViewType:
+	BUTTON = 'button' |
+	VSPIN = 'value-spinner' |
+	DATESPIN = 'date-spinner' |
+	LABEL = 'label' |
+	TextOutput = 'text' |
+	InputField = 'input' |
+	Canvas = 'canvas'
+;
+
+Layout:
+	StackLayout | GridLayout
+;
+
+GridLayout:
+	size=Size
+	fields=Field
+;
+
+Field:
+	'<' width=INT ',' height=INT '>'
+;
+
+
+StackLayout:
+	size=Size
+	direction=Direction	
+;
+
+Size:
+	'<' width=SizeExpr ',' height=SizeExpr '>'
+;
+
+SizeExpr:
+	value=INT unit=Unit
+;
+
+enum Unit:
+	PX = 'px' |
+	PERCENT = '%'
+;
+
+
+
+
+enum Direction:
+	HORIZONTAL = 'horizontal' |
+	VERTICAL = 'vertical'
+;
+
+
+
+

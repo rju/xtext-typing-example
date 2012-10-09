@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/de.cau.cs.se.lad/src-gen" editDirectory="/de.cau.cs.se.lad.edit/src"
+    editorDirectory="/de.cau.cs.se.lad.editor/src" modelPluginID="de.cau.cs.se.lad"
+    forceOverwrite="true" modelName="AppLang" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    complianceLevel="5.0" copyrightFields="false" editPluginID="de.cau.cs.se.lad.edit"
+    editorPluginID="de.cau.cs.se.lad.editor" runtimeVersion="2.8" usedGenPackages="../../../../../../model/Types.genmodel#//types">
+  <genPackages prefix="AppLang" basePackage="de.cau.cs.se.lad" disposableProviderFactory="true"
+      ecorePackage="AppLang.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="AppLang.ecore#//FunctionEnum">
+      <genEnumLiterals ecoreEnumLiteral="AppLang.ecore#//FunctionEnum/DECODE"/>
+      <genEnumLiterals ecoreEnumLiteral="AppLang.ecore#//FunctionEnum/ENCODE"/>
+      <genEnumLiterals ecoreEnumLiteral="AppLang.ecore#//FunctionEnum/GET"/>
+      <genEnumLiterals ecoreEnumLiteral="AppLang.ecore#//FunctionEnum/PUT"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="AppLang.ecore#//ViewType">
+      <genEnumLiterals ecoreEnumLiteral="AppLang.ecore#//ViewType/BUTTON"/>
+      <genEnumLiterals ecoreEnumLiteral="AppLang.ecore#//ViewType/VSPIN"/>
+      <genEnumLiterals ecoreEnumLiteral="AppLang.ecore#//ViewType/DATESPIN"/>
+      <genEnumLiterals ecoreEnumLiteral="AppLang.ecore#//ViewType/LABEL"/>
+      <genEnumLiterals ecoreEnumLiteral="AppLang.ecore#//ViewType/TextOutput"/>
+      <genEnumLiterals ecoreEnumLiteral="AppLang.ecore#//ViewType/InputField"/>
+      <genEnumLiterals ecoreEnumLiteral="AppLang.ecore#//ViewType/Canvas"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="AppLang.ecore#//Unit">
+      <genEnumLiterals ecoreEnumLiteral="AppLang.ecore#//Unit/PX"/>
+      <genEnumLiterals ecoreEnumLiteral="AppLang.ecore#//Unit/PERCENT"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="AppLang.ecore#//Direction">
+      <genEnumLiterals ecoreEnumLiteral="AppLang.ecore#//Direction/HORIZONTAL"/>
+      <genEnumLiterals ecoreEnumLiteral="AppLang.ecore#//Direction/VERTICAL"/>
+    </genEnums>
+    <genClasses ecoreClass="AppLang.ecore#//Model">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppLang.ecore#//Model/services"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppLang.ecore#//Model/views"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppLang.ecore#//Model/classes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppLang.ecore#//Model/model"/>
+    </genClasses>
+    <genClasses ecoreClass="AppLang.ecore#//Service">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AppLang.ecore#//Service/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppLang.ecore#//Service/configurations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppLang.ecore#//Service/operations"/>
+    </genClasses>
+    <genClasses ecoreClass="AppLang.ecore#//Operation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference AppLang.ecore#//Operation/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AppLang.ecore#//Operation/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppLang.ecore#//Operation/parameters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppLang.ecore#//Operation/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="AppLang.ecore#//Expression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppLang.ecore#//Expression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppLang.ecore#//Expression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="AppLang.ecore#//BaseExpression"/>
+    <genClasses ecoreClass="AppLang.ecore#//StringExpression"/>
+    <genClasses ecoreClass="AppLang.ecore#//StringValue"/>
+    <genClasses ecoreClass="AppLang.ecore#//StringProperty">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference AppLang.ecore#//StringProperty/reference"/>
+    </genClasses>
+    <genClasses ecoreClass="AppLang.ecore#//StringLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AppLang.ecore#//StringLiteral/literal"/>
+    </genClasses>
+    <genClasses ecoreClass="AppLang.ecore#//NullLiteral"/>
+    <genClasses ecoreClass="AppLang.ecore#//Function">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AppLang.ecore#//Function/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppLang.ecore#//Function/expressions"/>
+    </genClasses>
+    <genClasses ecoreClass="AppLang.ecore#//DataModel">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppLang.ecore#//DataModel/instances"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference AppLang.ecore#//DataModel/view"/>
+    </genClasses>
+    <genClasses ecoreClass="AppLang.ecore#//Instance">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AppLang.ecore#//Instance/name"/>
+    </genClasses>
+    <genClasses ecoreClass="AppLang.ecore#//ArrayInstance">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppLang.ecore#//ArrayInstance/type"/>
+    </genClasses>
+    <genClasses ecoreClass="AppLang.ecore#//SimpleInstance">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference AppLang.ecore#//SimpleInstance/type"/>
+    </genClasses>
+    <genClasses ecoreClass="AppLang.ecore#//View">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AppLang.ecore#//View/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppLang.ecore#//View/layout"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppLang.ecore#//View/contents"/>
+    </genClasses>
+    <genClasses ecoreClass="AppLang.ecore#//ViewContent"/>
+    <genClasses ecoreClass="AppLang.ecore#//ViewContainer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppLang.ecore#//ViewContainer/layout"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppLang.ecore#//ViewContainer/contents"/>
+    </genClasses>
+    <genClasses ecoreClass="AppLang.ecore#//ViewElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AppLang.ecore#//ViewElement/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AppLang.ecore#//ViewElement/name"/>
+    </genClasses>
+    <genClasses ecoreClass="AppLang.ecore#//Layout">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppLang.ecore#//Layout/size"/>
+    </genClasses>
+    <genClasses ecoreClass="AppLang.ecore#//GridLayout">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppLang.ecore#//GridLayout/fields"/>
+    </genClasses>
+    <genClasses ecoreClass="AppLang.ecore#//Field">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AppLang.ecore#//Field/width"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AppLang.ecore#//Field/height"/>
+    </genClasses>
+    <genClasses ecoreClass="AppLang.ecore#//StackLayout">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AppLang.ecore#//StackLayout/direction"/>
+    </genClasses>
+    <genClasses ecoreClass="AppLang.ecore#//Size">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppLang.ecore#//Size/width"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppLang.ecore#//Size/height"/>
+    </genClasses>
+    <genClasses ecoreClass="AppLang.ecore#//SizeExpr">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AppLang.ecore#//SizeExpr/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AppLang.ecore#//SizeExpr/unit"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

@@ -140,6 +140,89 @@ public interface TypesPackage extends EPackage {
 	int USER_TYPE_FEATURE_COUNT = TYPE_FEATURE_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link de.cau.cs.se.lad.types.impl.ClassTypeImpl <em>Class Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.cau.cs.se.lad.types.impl.ClassTypeImpl
+	 * @see de.cau.cs.se.lad.types.impl.TypesPackageImpl#getClassType()
+	 * @generated
+	 */
+	int CLASS_TYPE = 3;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_TYPE__NAME = USER_TYPE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_TYPE__PARENT = USER_TYPE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Properties</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_TYPE__PROPERTIES = USER_TYPE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Class Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_TYPE_FEATURE_COUNT = USER_TYPE_FEATURE_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link de.cau.cs.se.lad.types.impl.PropertyImpl <em>Property</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.cau.cs.se.lad.types.impl.PropertyImpl
+	 * @see de.cau.cs.se.lad.types.impl.TypesPackageImpl#getProperty()
+	 * @generated
+	 */
+	int PROPERTY = 4;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__TYPE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__NAME = 1;
+
+	/**
+	 * The number of structural features of the '<em>Property</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_FEATURE_COUNT = 2;
+
+	/**
 	 * The meta object id for the '{@link de.cau.cs.se.lad.types.impl.ArrayTypeImpl <em>Array Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -147,7 +230,7 @@ public interface TypesPackage extends EPackage {
 	 * @see de.cau.cs.se.lad.types.impl.TypesPackageImpl#getArrayType()
 	 * @generated
 	 */
-	int ARRAY_TYPE = 3;
+	int ARRAY_TYPE = 5;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -226,6 +309,70 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getUserType();
+
+	/**
+	 * Returns the meta object for class '{@link de.cau.cs.se.lad.types.ClassType <em>Class Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Class Type</em>'.
+	 * @see de.cau.cs.se.lad.types.ClassType
+	 * @generated
+	 */
+	EClass getClassType();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.cau.cs.se.lad.types.ClassType#getParent <em>Parent</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Parent</em>'.
+	 * @see de.cau.cs.se.lad.types.ClassType#getParent()
+	 * @see #getClassType()
+	 * @generated
+	 */
+	EReference getClassType_Parent();
+
+	/**
+	 * Returns the meta object for the reference list '{@link de.cau.cs.se.lad.types.ClassType#getProperties <em>Properties</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Properties</em>'.
+	 * @see de.cau.cs.se.lad.types.ClassType#getProperties()
+	 * @see #getClassType()
+	 * @generated
+	 */
+	EReference getClassType_Properties();
+
+	/**
+	 * Returns the meta object for class '{@link de.cau.cs.se.lad.types.Property <em>Property</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Property</em>'.
+	 * @see de.cau.cs.se.lad.types.Property
+	 * @generated
+	 */
+	EClass getProperty();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.cau.cs.se.lad.types.Property#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Type</em>'.
+	 * @see de.cau.cs.se.lad.types.Property#getType()
+	 * @see #getProperty()
+	 * @generated
+	 */
+	EReference getProperty_Type();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.cau.cs.se.lad.types.Property#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see de.cau.cs.se.lad.types.Property#getName()
+	 * @see #getProperty()
+	 * @generated
+	 */
+	EAttribute getProperty_Name();
 
 	/**
 	 * Returns the meta object for class '{@link de.cau.cs.se.lad.types.ArrayType <em>Array Type</em>}'.
@@ -318,6 +465,58 @@ public interface TypesPackage extends EPackage {
 		 * @generated
 		 */
 		EClass USER_TYPE = eINSTANCE.getUserType();
+
+		/**
+		 * The meta object literal for the '{@link de.cau.cs.se.lad.types.impl.ClassTypeImpl <em>Class Type</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.cau.cs.se.lad.types.impl.ClassTypeImpl
+		 * @see de.cau.cs.se.lad.types.impl.TypesPackageImpl#getClassType()
+		 * @generated
+		 */
+		EClass CLASS_TYPE = eINSTANCE.getClassType();
+
+		/**
+		 * The meta object literal for the '<em><b>Parent</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CLASS_TYPE__PARENT = eINSTANCE.getClassType_Parent();
+
+		/**
+		 * The meta object literal for the '<em><b>Properties</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CLASS_TYPE__PROPERTIES = eINSTANCE.getClassType_Properties();
+
+		/**
+		 * The meta object literal for the '{@link de.cau.cs.se.lad.types.impl.PropertyImpl <em>Property</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.cau.cs.se.lad.types.impl.PropertyImpl
+		 * @see de.cau.cs.se.lad.types.impl.TypesPackageImpl#getProperty()
+		 * @generated
+		 */
+		EClass PROPERTY = eINSTANCE.getProperty();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROPERTY__TYPE = eINSTANCE.getProperty_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROPERTY__NAME = eINSTANCE.getProperty_Name();
 
 		/**
 		 * The meta object literal for the '{@link de.cau.cs.se.lad.types.impl.ArrayTypeImpl <em>Array Type</em>}' class.

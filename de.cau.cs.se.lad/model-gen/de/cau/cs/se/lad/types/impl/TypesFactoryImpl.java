@@ -59,6 +59,8 @@ public class TypesFactoryImpl extends EFactoryImpl implements TypesFactory {
 			case TypesPackage.TYPE: return createType();
 			case TypesPackage.PRIMITIVE_TYPE: return createPrimitiveType();
 			case TypesPackage.USER_TYPE: return createUserType();
+			case TypesPackage.CLASS_TYPE: return createClassType();
+			case TypesPackage.PROPERTY: return createProperty();
 			case TypesPackage.ARRAY_TYPE: return createArrayType();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -93,6 +95,26 @@ public class TypesFactoryImpl extends EFactoryImpl implements TypesFactory {
 	public UserType createUserType() {
 		UserTypeImpl userType = new UserTypeImpl();
 		return userType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ClassType createClassType() {
+		ClassTypeImpl classType = new ClassTypeImpl();
+		return classType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Property createProperty() {
+		PropertyImpl property = new PropertyImpl();
+		return property;
 	}
 
 	/**
