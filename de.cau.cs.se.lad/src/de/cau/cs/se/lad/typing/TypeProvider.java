@@ -36,14 +36,11 @@ public class TypeProvider implements Resource.Factory, ITypeProvider {
 
 	private final ResourceSet resourceSet;
 
-	private final PrimitiveTypeFactory primitiveTypeFactory;
-
 	/**
 	 * @param resourceSet
 	 */
 	public TypeProvider(ResourceSet resourceSet) {
 		this.resourceSet = resourceSet;
-		primitiveTypeFactory = new PrimitiveTypeFactory();
 		typeUriHelper = new LadTypeURIHelper();
 	}
 
@@ -115,7 +112,7 @@ public class TypeProvider implements Resource.Factory, ITypeProvider {
 			        + resourceURI.toString() + "'");
 		String name = resourceURI.path();
 		if (LadURIHelperConstants.PRIMITIVES.equals(name))
-			return new PrimitiveMirror(primitiveTypeFactory);
+			return new PrimitiveMirror();
 		else
 			throw new IllegalArgumentException("Invalid resource uri '" + resourceURI.toString()
 			        + "'");

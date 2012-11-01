@@ -56,7 +56,7 @@ public class TypeGlobalScopeProvider extends DefaultGlobalScopeProvider {
     		if (resourceSet == null)
     			throw new IllegalStateException("context must be contained in a resource set");
         	ITypeProvider typeProvider = typeProviderFactory.getTypeProvider(resourceSet);
-			return new SimpleTypeScope(typeProvider, qualifiedNameConverter, filter);
+			return new PrimitiveTypeScope(typeProvider, qualifiedNameConverter, filter);
         } else
         	return IScope.NULLSCOPE;
     }

@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.resource.IFragmentProvider;
 
+import de.cau.cs.se.lad.types.TypesFactory;
 import de.cau.cs.se.lad.types.TypesPackage;
 import de.cau.cs.se.lad.types.PrimitiveType;
 import de.cau.cs.se.lad.types.Type;
@@ -26,17 +27,13 @@ import de.cau.cs.se.lad.types.Type;
  */
 public class PrimitiveMirror {
 
-	private final ITypeFactory<String> typeFactory; // type factory, which is able to return types
-													// based on their names
-
 	/**
 	 * Constructs the primitive mirror. It requires a type factory for primitive types described
 	 * with strings.
 	 * 
 	 * @param typeFactory The type factory
 	 */
-	public PrimitiveMirror(ITypeFactory<String> typeFactory) {
-		this.typeFactory = typeFactory;
+	public PrimitiveMirror() {
 	}
 
 	/**
@@ -78,7 +75,8 @@ public class PrimitiveMirror {
 	 */
 	public void initialize(final TypeResource typeResource) {
 		for (PrimitiveTypes primitiveType : PrimitiveTypes.values()) {
-			Type type = typeFactory.createType(primitiveType.lowerCaseName());
+			Type type = TypesFactory.eINSTANCE.createPrimitiveType();
+	        type.setName(primitiveType.lowerCaseName());
 			typeResource.getContents().add(type);
 		}
 	}

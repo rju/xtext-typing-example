@@ -43,7 +43,7 @@ import de.cau.cs.se.lad.types.TypesFactory;
  * 
  * @author Christian Schneider
  */
-public class SimpleTypeScope extends AbstractScope {
+public class PrimitiveTypeScope extends AbstractScope {
 
     private final ITypeProvider typeProvider;
 
@@ -51,7 +51,7 @@ public class SimpleTypeScope extends AbstractScope {
 
     private final Predicate<IEObjectDescription> filter;
 
-    protected SimpleTypeScope(ITypeProvider typeProvider, IQualifiedNameConverter qualifiedNameConverter,
+    protected PrimitiveTypeScope(ITypeProvider typeProvider, IQualifiedNameConverter qualifiedNameConverter,
                     Predicate<IEObjectDescription> filter) {
             super(IScope.NULLSCOPE, false);
             this.typeProvider = typeProvider;

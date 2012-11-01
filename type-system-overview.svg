@@ -9,8 +9,8 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="1080.7086"
-   height="460.62991"
+   width="886.54108"
+   height="461.42856"
    id="svg2"
    version="1.1"
    inkscape:version="0.48.3.1 r9886"
@@ -123,18 +123,18 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.98994949"
-     inkscape:cx="768.3156"
-     inkscape:cy="192.3549"
+     inkscape:zoom="1.4"
+     inkscape:cx="510.5786"
+     inkscape:cy="192.35489"
      inkscape:document-units="px"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="layer2"
      showgrid="true"
-     showguides="true"
+     showguides="false"
      inkscape:guide-bbox="true"
-     inkscape:window-width="1280"
-     inkscape:window-height="964"
-     inkscape:window-x="0"
-     inkscape:window-y="27"
+     inkscape:window-width="1920"
+     inkscape:window-height="1167"
+     inkscape:window-x="1280"
+     inkscape:window-y="0"
      inkscape:window-maximized="1"
      fit-margin-top="0"
      fit-margin-left="0"
@@ -148,15 +148,15 @@
        visible="true"
        enabled="true"
        snapvisiblegridlinesonly="true"
-       originx="145mm"
+       originx="145.20159mm"
        originy="-165mm" />
     <sodipodi:guide
        orientation="0,1"
-       position="435.82677,449.99999"
+       position="436.54106,449.99998"
        id="guide3191" />
     <sodipodi:guide
        orientation="1,0"
-       position="53.149606,350.78739"
+       position="53.863892,350.78738"
        id="guide3193" />
   </sodipodi:namedview>
   <metadata
@@ -167,15 +167,29 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
   <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="base"
+     transform="translate(0.71428573,0.79865992)">
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:none"
+       id="rect3202"
+       width="886.54108"
+       height="461.42856"
+       x="-0.71428573"
+       y="-0.79865992"
+       ry="8.4103558e-06" />
+  </g>
+  <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(513.77954,-7.0865883)">
+     transform="translate(514.49383,-6.2879284)">
     <g
        id="g4002"
        transform="translate(-283.46457,301.1811)">
@@ -486,102 +500,6 @@
        id="path5151"
        inkscape:connector-curvature="0" />
     <g
-       id="g5891"
-       transform="translate(226.77164,113.38581)">
-      <g
-         id="g4026">
-        <rect
-           style="fill:#fffcaf;fill-opacity:1;stroke:#d5a600;stroke-width:1.5;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
-           id="rect3946"
-           width="141.73228"
-           height="46.062992"
-           x="177.16536"
-           y="219.68501"
-           ry="4.4428712e-06" />
-        <text
-           xml:space="preserve"
-           style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Sans"
-           x="248.03149"
-           y="237.40155"
-           id="text3013"
-           sodipodi:linespacing="125%"><tspan
-             sodipodi:role="line"
-             id="tspan3015"
-             x="248.03149"
-             y="237.40155">PrimitiveTypeFactory</tspan></text>
-        <text
-           xml:space="preserve"
-           style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Sans"
-           x="223.22835"
-           y="255.11809"
-           id="text3089"
-           sodipodi:linespacing="125%"><tspan
-             sodipodi:role="line"
-             id="tspan3091"
-             x="223.22835"
-             y="255.11809">createType</tspan></text>
-        <path
-           style="fill:none;stroke:#d5a600;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-           d="m 177.16535,244.48817 141.73229,0"
-           id="path3969"
-           inkscape:connector-curvature="0" />
-      </g>
-      <g
-         id="g4056-4"
-         transform="translate(-354.33071,-159.44882)">
-        <rect
-           style="fill:#fffcaf;fill-opacity:1;stroke:#d5a600;stroke-width:1.5;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
-           id="rect3954-3"
-           width="106.29921"
-           height="46.062992"
-           x="354.33072"
-           y="379.13385"
-           ry="4.4428712e-06" />
-        <text
-           xml:space="preserve"
-           style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Sans"
-           x="407.48032"
-           y="396.85037"
-           id="text3029-6"
-           sodipodi:linespacing="125%"><tspan
-             sodipodi:role="line"
-             id="tspan3031-2"
-             x="407.48032"
-             y="396.85037">ITypeFactory</tspan></text>
-        <text
-           xml:space="preserve"
-           style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Sans"
-           x="382.67715"
-           y="414.56689"
-           id="text3105-4"
-           sodipodi:linespacing="125%"><tspan
-             sodipodi:role="line"
-             id="tspan3107-8"
-             x="382.67715"
-             y="414.56689">createType</tspan></text>
-        <path
-           style="fill:none;stroke:#d5a600;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-           d="m 354.33071,403.93699 106.29921,0"
-           id="path3977-2"
-           inkscape:connector-curvature="0" />
-      </g>
-      <path
-         inkscape:connector-curvature="0"
-         id="path5335"
-         d="m 81.496063,251.57478 138.188977,0"
-         style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:3, 3;stroke-dashoffset:0;marker-end:url(#Arrow1Mend)" />
-      <path
-         inkscape:connector-curvature="0"
-         id="path5703"
-         d="m 106.29921,233.85825 70.86614,0"
-         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:url(#EmptyTriangleInL)" />
-    </g>
-    <path
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend)"
-       d="m 134.64567,364.96061 116.92913,0"
-       id="path5909"
-       inkscape:connector-curvature="0" />
-    <g
        id="g4010"
        transform="translate(-751.18108,-70.866148)">
       <rect
@@ -602,7 +520,7 @@
            y="237.40155"
            x="407.48032"
            id="tspan3019"
-           sodipodi:role="line">SimpleTypeScope</tspan></text>
+           sodipodi:role="line">PrimitiveTypeScope</tspan></text>
       <text
          sodipodi:linespacing="125%"
          id="text3061"
@@ -1138,24 +1056,5 @@
          id="tspan4417"
          x="265.71429"
          y="188.20586">new</tspan></text>
-    <path
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend-38-4)"
-       d="m 620.07874,187.79527 42.51969,0 0,-28.34645 325.98425,0 0,201.9685"
-       id="path4419"
-       inkscape:connector-curvature="0"
-       transform="translate(-513.77954,-28.346479)"
-       sodipodi:nodetypes="ccccc" />
-    <text
-       xml:space="preserve"
-       style="font-size:8px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Sans"
-       x="992.14288"
-       y="356.06299"
-       id="text4615"
-       sodipodi:linespacing="125%"
-       transform="translate(-513.77954,-28.346479)"><tspan
-         sodipodi:role="line"
-         id="tspan4617"
-         x="992.14288"
-         y="356.06299">new</tspan></text>
   </g>
 </svg>
