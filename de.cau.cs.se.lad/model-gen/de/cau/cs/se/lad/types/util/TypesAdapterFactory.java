@@ -92,6 +92,18 @@ public class TypesAdapterFactory extends AdapterFactoryImpl {
 				return createArrayTypeAdapter();
 			}
 			@Override
+			public Adapter caseTypeReference(TypeReference object) {
+				return createTypeReferenceAdapter();
+			}
+			@Override
+			public Adapter caseServiceType(ServiceType object) {
+				return createServiceTypeAdapter();
+			}
+			@Override
+			public Adapter caseOperation(Operation object) {
+				return createOperationAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -192,6 +204,48 @@ public class TypesAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createArrayTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.cau.cs.se.lad.types.TypeReference <em>Type Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.cau.cs.se.lad.types.TypeReference
+	 * @generated
+	 */
+	public Adapter createTypeReferenceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.cau.cs.se.lad.types.ServiceType <em>Service Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.cau.cs.se.lad.types.ServiceType
+	 * @generated
+	 */
+	public Adapter createServiceTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.cau.cs.se.lad.types.Operation <em>Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.cau.cs.se.lad.types.Operation
+	 * @generated
+	 */
+	public Adapter createOperationAdapter() {
 		return null;
 	}
 

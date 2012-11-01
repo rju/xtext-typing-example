@@ -62,6 +62,9 @@ public class TypesFactoryImpl extends EFactoryImpl implements TypesFactory {
 			case TypesPackage.CLASS_TYPE: return createClassType();
 			case TypesPackage.PROPERTY: return createProperty();
 			case TypesPackage.ARRAY_TYPE: return createArrayType();
+			case TypesPackage.TYPE_REFERENCE: return createTypeReference();
+			case TypesPackage.SERVICE_TYPE: return createServiceType();
+			case TypesPackage.OPERATION: return createOperation();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -125,6 +128,36 @@ public class TypesFactoryImpl extends EFactoryImpl implements TypesFactory {
 	public ArrayType createArrayType() {
 		ArrayTypeImpl arrayType = new ArrayTypeImpl();
 		return arrayType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TypeReference createTypeReference() {
+		TypeReferenceImpl typeReference = new TypeReferenceImpl();
+		return typeReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ServiceType createServiceType() {
+		ServiceTypeImpl serviceType = new ServiceTypeImpl();
+		return serviceType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Operation createOperation() {
+		OperationImpl operation = new OperationImpl();
+		return operation;
 	}
 
 	/**

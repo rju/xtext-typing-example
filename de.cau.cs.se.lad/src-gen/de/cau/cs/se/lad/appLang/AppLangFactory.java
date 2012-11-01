@@ -32,24 +32,6 @@ public interface AppLangFactory extends EFactory
   Model createModel();
 
   /**
-   * Returns a new object of class '<em>Service</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Service</em>'.
-   * @generated
-   */
-  Service createService();
-
-  /**
-   * Returns a new object of class '<em>Operation</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Operation</em>'.
-   * @generated
-   */
-  Operation createOperation();
-
-  /**
    * Returns a new object of class '<em>Expression</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -138,24 +120,6 @@ public interface AppLangFactory extends EFactory
    * @generated
    */
   Instance createInstance();
-
-  /**
-   * Returns a new object of class '<em>Array Instance</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Array Instance</em>'.
-   * @generated
-   */
-  ArrayInstance createArrayInstance();
-
-  /**
-   * Returns a new object of class '<em>Simple Instance</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Simple Instance</em>'.
-   * @generated
-   */
-  SimpleInstance createSimpleInstance();
 
   /**
    * Returns a new object of class '<em>View</em>'.

@@ -3,27 +3,12 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="appLang" nsURI="http://www.cau.de/cs/se/lad/AppLang" nsPrefix="appLang">
   <eClassifiers xsi:type="ecore:EClass" name="Model">
     <eStructuralFeatures xsi:type="ecore:EReference" name="services" upperBound="-1"
-        eType="#//Service" containment="true"/>
+        eType="ecore:EClass ../../../../../../model/Types.ecore#//ServiceType" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="views" upperBound="-1"
         eType="#//View" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="classes" upperBound="-1"
         eType="ecore:EClass ../../../../../../model/Types.ecore#//ClassType" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="model" eType="#//DataModel"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Service">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="configurations" upperBound="-1"
-        eType="ecore:EClass ../../../../../../model/Types.ecore#//Property" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="operations" upperBound="-1"
-        eType="#//Operation" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Operation">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="ecore:EClass ../../../../../../model/Types.ecore#//Type"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
-        eType="ecore:EClass ../../../../../../model/Types.ecore#//Property" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//Expression"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Expression">
@@ -43,7 +28,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NullLiteral" eSuperTypes="#//BaseExpression"/>
   <eClassifiers xsi:type="ecore:EClass" name="Function" eSuperTypes="#//BaseExpression">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//FunctionEnum"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="#//FunctionEnum"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="expressions" upperBound="-1"
         eType="#//Expression" containment="true"/>
   </eClassifiers>
@@ -59,14 +44,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="view" eType="#//Instance"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Instance">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ArrayInstance" eSuperTypes="#//Instance">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="ecore:EClass ../../../../../../model/Types.ecore#//Type"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="ecore:EClass ../../../../../../model/Types.ecore#//TypeReference"
         containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SimpleInstance" eSuperTypes="#//Instance">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="ecore:EClass ../../../../../../model/Types.ecore#//Type"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="View">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -87,13 +67,14 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ViewType">
-    <eLiterals name="BUTTON" literal="button"/>
-    <eLiterals name="VSPIN" value="1" literal="value-spinner"/>
-    <eLiterals name="DATESPIN" value="2" literal="date-spinner"/>
-    <eLiterals name="LABEL" value="3" literal="label"/>
+    <eLiterals name="Button" literal="button"/>
+    <eLiterals name="ValueSpinner" value="1" literal="value-spinner"/>
+    <eLiterals name="DateSpinner" value="2" literal="date-spinner"/>
+    <eLiterals name="Label" value="3" literal="label"/>
     <eLiterals name="TextOutput" value="4" literal="text"/>
     <eLiterals name="InputField" value="5" literal="input"/>
     <eLiterals name="Canvas" value="6" literal="canvas"/>
+    <eLiterals name="TreeList" value="7" literal="tree-list"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Layout">
     <eStructuralFeatures xsi:type="ecore:EReference" name="size" eType="#//Size" containment="true"/>

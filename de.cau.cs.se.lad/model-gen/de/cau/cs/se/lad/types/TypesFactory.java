@@ -76,6 +76,33 @@ public interface TypesFactory extends EFactory {
 	ArrayType createArrayType();
 
 	/**
+	 * Returns a new object of class '<em>Type Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Type Reference</em>'.
+	 * @generated
+	 */
+	TypeReference createTypeReference();
+
+	/**
+	 * Returns a new object of class '<em>Service Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Service Type</em>'.
+	 * @generated
+	 */
+	ServiceType createServiceType();
+
+	/**
+	 * Returns a new object of class '<em>Operation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Operation</em>'.
+	 * @generated
+	 */
+	Operation createOperation();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

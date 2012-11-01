@@ -11,18 +11,18 @@ Model:
 
 Class returns types::ClassType:
 	'class' name=ID ('extends' parent=[types::ClassType|ID])? '{'
-		properties+=Property
+		properties+=Property+
 	'}'
 ;
 
-Service:
+Service returns types::ServiceType:
 	'service' name=ID '(' configurations+=Property (',' configurations+=Property)*  ')' '{'
-		operations+=Operation
+		operations+=Operation+
 	'}'
 ;
 
-Operation:
-	type=[types::Type] name=ID '(' parameters+=Property (',' parameters+=Property)* ')'
+Operation returns types::Operation:
+	'op' type=TypeReference name=ID '(' parameters+=Property (',' parameters+=Property)* ')'
 		'return' expression=Expression
 ;
 
@@ -57,7 +57,7 @@ NullLiteral: {NullLiteral}
 
 
 Function:
-	type=FunctionEnum '(' expressions+=Expression (',' expressions+=Expression)* ')'
+	name=FunctionEnum '(' expressions+=Expression (',' expressions+=Expression)* ')'
 ;
 
 enum FunctionEnum:
@@ -68,31 +68,25 @@ enum FunctionEnum:
 ;
 
 Property returns types::Property:
-	type=[types::Type] name=ID
+	type=TypeReference name=ID
+;
+
+TypeReference returns types::TypeReference:
+    // this btw. realizes the issue of allowing '[]' solely at the last position 
+    {types::ArrayType} type = [types::Type] '[' (size=INT)? ']'
+    | {types::TypeReference} type = [types::Type] ('.' remainder=TypeReference)?
 ;
 
 DataModel: {DataModel}
 	'model' '{'
 		instances+=Instance*
 		// only instances of view types
-		'start' view=[Instance|ID] ';'
+		'start' view=[Instance|ID]
 	'}'
 ;
 
 Instance:
-	ArrayInstance | SimpleInstance
-;
-
-ArrayInstance:
-	'new' type=ArrayType name=ID ';'
-;
-
-SimpleInstance:
-	'new' type=[types::Type] name=ID ';'
-;
-
-ArrayType returns types::Type: {types::ArrayType}
-	type=[types::Type|ID] '[' (size=INT)? ']'
+	'new' type=TypeReference name=ID 
 ;
 
 View:
@@ -121,13 +115,14 @@ ViewElement:
 ;
 
 enum ViewType:
-	BUTTON = 'button' |
-	VSPIN = 'value-spinner' |
-	DATESPIN = 'date-spinner' |
-	LABEL = 'label' |
+	Button = 'button' |
+	ValueSpinner = 'value-spinner' |
+	DateSpinner = 'date-spinner' |
+	Label = 'label' |
 	TextOutput = 'text' |
 	InputField = 'input' |
-	Canvas = 'canvas'
+	Canvas = 'canvas' |
+	TreeList = 'tree-list'
 ;
 
 Layout:

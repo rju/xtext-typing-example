@@ -20,24 +20,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.cau.cs.se.lad.types.impl.ArrayTypeImpl#getType <em>Type</em>}</li>
  *   <li>{@link de.cau.cs.se.lad.types.impl.ArrayTypeImpl#getSize <em>Size</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class ArrayTypeImpl extends UserTypeImpl implements ArrayType {
-	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getType()
-	 * @generated
-	 * @ordered
-	 */
-	protected Type type;
-
+public class ArrayTypeImpl extends TypeReferenceImpl implements ArrayType {
 	/**
 	 * The default value of the '{@link #getSize() <em>Size</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -82,44 +71,6 @@ public class ArrayTypeImpl extends UserTypeImpl implements ArrayType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Type getType() {
-		if (type != null && type.eIsProxy()) {
-			InternalEObject oldType = (InternalEObject)type;
-			type = (Type)eResolveProxy(oldType);
-			if (type != oldType) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TypesPackage.ARRAY_TYPE__TYPE, oldType, type));
-			}
-		}
-		return type;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Type basicGetType() {
-		return type;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setType(Type newType) {
-		Type oldType = type;
-		type = newType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.ARRAY_TYPE__TYPE, oldType, type));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public int getSize() {
 		return size;
 	}
@@ -144,9 +95,6 @@ public class ArrayTypeImpl extends UserTypeImpl implements ArrayType {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case TypesPackage.ARRAY_TYPE__TYPE:
-				if (resolve) return getType();
-				return basicGetType();
 			case TypesPackage.ARRAY_TYPE__SIZE:
 				return getSize();
 		}
@@ -161,9 +109,6 @@ public class ArrayTypeImpl extends UserTypeImpl implements ArrayType {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case TypesPackage.ARRAY_TYPE__TYPE:
-				setType((Type)newValue);
-				return;
 			case TypesPackage.ARRAY_TYPE__SIZE:
 				setSize((Integer)newValue);
 				return;
@@ -179,9 +124,6 @@ public class ArrayTypeImpl extends UserTypeImpl implements ArrayType {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case TypesPackage.ARRAY_TYPE__TYPE:
-				setType((Type)null);
-				return;
 			case TypesPackage.ARRAY_TYPE__SIZE:
 				setSize(SIZE_EDEFAULT);
 				return;
@@ -197,8 +139,6 @@ public class ArrayTypeImpl extends UserTypeImpl implements ArrayType {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case TypesPackage.ARRAY_TYPE__TYPE:
-				return type != null;
 			case TypesPackage.ARRAY_TYPE__SIZE:
 				return size != SIZE_EDEFAULT;
 		}

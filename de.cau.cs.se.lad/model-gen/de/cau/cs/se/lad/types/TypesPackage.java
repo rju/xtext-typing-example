@@ -168,7 +168,7 @@ public interface TypesPackage extends EPackage {
 	int CLASS_TYPE__PARENT = USER_TYPE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Properties</b></em>' reference list.
+	 * The feature id for the '<em><b>Properties</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -196,7 +196,7 @@ public interface TypesPackage extends EPackage {
 	int PROPERTY = 4;
 
 	/**
-	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * The feature id for the '<em><b>Type</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -223,6 +223,43 @@ public interface TypesPackage extends EPackage {
 	int PROPERTY_FEATURE_COUNT = 2;
 
 	/**
+	 * The meta object id for the '{@link de.cau.cs.se.lad.types.impl.TypeReferenceImpl <em>Type Reference</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.cau.cs.se.lad.types.impl.TypeReferenceImpl
+	 * @see de.cau.cs.se.lad.types.impl.TypesPackageImpl#getTypeReference()
+	 * @generated
+	 */
+	int TYPE_REFERENCE = 6;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_REFERENCE__TYPE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Remainder</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_REFERENCE__REMAINDER = 1;
+
+	/**
+	 * The number of structural features of the '<em>Type Reference</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_REFERENCE_FEATURE_COUNT = 2;
+
+	/**
 	 * The meta object id for the '{@link de.cau.cs.se.lad.types.impl.ArrayTypeImpl <em>Array Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -233,22 +270,22 @@ public interface TypesPackage extends EPackage {
 	int ARRAY_TYPE = 5;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ARRAY_TYPE__NAME = USER_TYPE__NAME;
-
-	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ARRAY_TYPE__TYPE = USER_TYPE_FEATURE_COUNT + 0;
+	int ARRAY_TYPE__TYPE = TYPE_REFERENCE__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Remainder</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARRAY_TYPE__REMAINDER = TYPE_REFERENCE__REMAINDER;
 
 	/**
 	 * The feature id for the '<em><b>Size</b></em>' attribute.
@@ -257,7 +294,7 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ARRAY_TYPE__SIZE = USER_TYPE_FEATURE_COUNT + 1;
+	int ARRAY_TYPE__SIZE = TYPE_REFERENCE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Array Type</em>' class.
@@ -266,7 +303,109 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ARRAY_TYPE_FEATURE_COUNT = USER_TYPE_FEATURE_COUNT + 2;
+	int ARRAY_TYPE_FEATURE_COUNT = TYPE_REFERENCE_FEATURE_COUNT + 1;
+
+
+	/**
+	 * The meta object id for the '{@link de.cau.cs.se.lad.types.impl.ServiceTypeImpl <em>Service Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.cau.cs.se.lad.types.impl.ServiceTypeImpl
+	 * @see de.cau.cs.se.lad.types.impl.TypesPackageImpl#getServiceType()
+	 * @generated
+	 */
+	int SERVICE_TYPE = 7;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_TYPE__NAME = USER_TYPE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Configurations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_TYPE__CONFIGURATIONS = USER_TYPE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Operations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_TYPE__OPERATIONS = USER_TYPE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Service Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_TYPE_FEATURE_COUNT = USER_TYPE_FEATURE_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link de.cau.cs.se.lad.types.impl.OperationImpl <em>Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.cau.cs.se.lad.types.impl.OperationImpl
+	 * @see de.cau.cs.se.lad.types.impl.TypesPackageImpl#getOperation()
+	 * @generated
+	 */
+	int OPERATION = 8;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION__TYPE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION__NAME = 1;
+
+	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION__PARAMETERS = 2;
+
+	/**
+	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION__EXPRESSION = 3;
+
+	/**
+	 * The number of structural features of the '<em>Operation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION_FEATURE_COUNT = 4;
 
 
 	/**
@@ -332,10 +471,10 @@ public interface TypesPackage extends EPackage {
 	EReference getClassType_Parent();
 
 	/**
-	 * Returns the meta object for the reference list '{@link de.cau.cs.se.lad.types.ClassType#getProperties <em>Properties</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.cau.cs.se.lad.types.ClassType#getProperties <em>Properties</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Properties</em>'.
+	 * @return the meta object for the containment reference list '<em>Properties</em>'.
 	 * @see de.cau.cs.se.lad.types.ClassType#getProperties()
 	 * @see #getClassType()
 	 * @generated
@@ -353,10 +492,10 @@ public interface TypesPackage extends EPackage {
 	EClass getProperty();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.cau.cs.se.lad.types.Property#getType <em>Type</em>}'.
+	 * Returns the meta object for the containment reference '{@link de.cau.cs.se.lad.types.Property#getType <em>Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Type</em>'.
+	 * @return the meta object for the containment reference '<em>Type</em>'.
 	 * @see de.cau.cs.se.lad.types.Property#getType()
 	 * @see #getProperty()
 	 * @generated
@@ -385,17 +524,6 @@ public interface TypesPackage extends EPackage {
 	EClass getArrayType();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.cau.cs.se.lad.types.ArrayType#getType <em>Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Type</em>'.
-	 * @see de.cau.cs.se.lad.types.ArrayType#getType()
-	 * @see #getArrayType()
-	 * @generated
-	 */
-	EReference getArrayType_Type();
-
-	/**
 	 * Returns the meta object for the attribute '{@link de.cau.cs.se.lad.types.ArrayType#getSize <em>Size</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -405,6 +533,124 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getArrayType_Size();
+
+	/**
+	 * Returns the meta object for class '{@link de.cau.cs.se.lad.types.TypeReference <em>Type Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Type Reference</em>'.
+	 * @see de.cau.cs.se.lad.types.TypeReference
+	 * @generated
+	 */
+	EClass getTypeReference();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.cau.cs.se.lad.types.TypeReference#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Type</em>'.
+	 * @see de.cau.cs.se.lad.types.TypeReference#getType()
+	 * @see #getTypeReference()
+	 * @generated
+	 */
+	EReference getTypeReference_Type();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link de.cau.cs.se.lad.types.TypeReference#getRemainder <em>Remainder</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Remainder</em>'.
+	 * @see de.cau.cs.se.lad.types.TypeReference#getRemainder()
+	 * @see #getTypeReference()
+	 * @generated
+	 */
+	EReference getTypeReference_Remainder();
+
+	/**
+	 * Returns the meta object for class '{@link de.cau.cs.se.lad.types.ServiceType <em>Service Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Service Type</em>'.
+	 * @see de.cau.cs.se.lad.types.ServiceType
+	 * @generated
+	 */
+	EClass getServiceType();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.cau.cs.se.lad.types.ServiceType#getConfigurations <em>Configurations</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Configurations</em>'.
+	 * @see de.cau.cs.se.lad.types.ServiceType#getConfigurations()
+	 * @see #getServiceType()
+	 * @generated
+	 */
+	EReference getServiceType_Configurations();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.cau.cs.se.lad.types.ServiceType#getOperations <em>Operations</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Operations</em>'.
+	 * @see de.cau.cs.se.lad.types.ServiceType#getOperations()
+	 * @see #getServiceType()
+	 * @generated
+	 */
+	EReference getServiceType_Operations();
+
+	/**
+	 * Returns the meta object for class '{@link de.cau.cs.se.lad.types.Operation <em>Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Operation</em>'.
+	 * @see de.cau.cs.se.lad.types.Operation
+	 * @generated
+	 */
+	EClass getOperation();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link de.cau.cs.se.lad.types.Operation#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Type</em>'.
+	 * @see de.cau.cs.se.lad.types.Operation#getType()
+	 * @see #getOperation()
+	 * @generated
+	 */
+	EReference getOperation_Type();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.cau.cs.se.lad.types.Operation#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see de.cau.cs.se.lad.types.Operation#getName()
+	 * @see #getOperation()
+	 * @generated
+	 */
+	EAttribute getOperation_Name();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.cau.cs.se.lad.types.Operation#getParameters <em>Parameters</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Parameters</em>'.
+	 * @see de.cau.cs.se.lad.types.Operation#getParameters()
+	 * @see #getOperation()
+	 * @generated
+	 */
+	EReference getOperation_Parameters();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link de.cau.cs.se.lad.types.Operation#getExpression <em>Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Expression</em>'.
+	 * @see de.cau.cs.se.lad.types.Operation#getExpression()
+	 * @see #getOperation()
+	 * @generated
+	 */
+	EReference getOperation_Expression();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -485,7 +731,7 @@ public interface TypesPackage extends EPackage {
 		EReference CLASS_TYPE__PARENT = eINSTANCE.getClassType_Parent();
 
 		/**
-		 * The meta object literal for the '<em><b>Properties</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Properties</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -503,7 +749,7 @@ public interface TypesPackage extends EPackage {
 		EClass PROPERTY = eINSTANCE.getProperty();
 
 		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -529,20 +775,106 @@ public interface TypesPackage extends EPackage {
 		EClass ARRAY_TYPE = eINSTANCE.getArrayType();
 
 		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ARRAY_TYPE__TYPE = eINSTANCE.getArrayType_Type();
-
-		/**
 		 * The meta object literal for the '<em><b>Size</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute ARRAY_TYPE__SIZE = eINSTANCE.getArrayType_Size();
+
+		/**
+		 * The meta object literal for the '{@link de.cau.cs.se.lad.types.impl.TypeReferenceImpl <em>Type Reference</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.cau.cs.se.lad.types.impl.TypeReferenceImpl
+		 * @see de.cau.cs.se.lad.types.impl.TypesPackageImpl#getTypeReference()
+		 * @generated
+		 */
+		EClass TYPE_REFERENCE = eINSTANCE.getTypeReference();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TYPE_REFERENCE__TYPE = eINSTANCE.getTypeReference_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Remainder</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TYPE_REFERENCE__REMAINDER = eINSTANCE.getTypeReference_Remainder();
+
+		/**
+		 * The meta object literal for the '{@link de.cau.cs.se.lad.types.impl.ServiceTypeImpl <em>Service Type</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.cau.cs.se.lad.types.impl.ServiceTypeImpl
+		 * @see de.cau.cs.se.lad.types.impl.TypesPackageImpl#getServiceType()
+		 * @generated
+		 */
+		EClass SERVICE_TYPE = eINSTANCE.getServiceType();
+
+		/**
+		 * The meta object literal for the '<em><b>Configurations</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SERVICE_TYPE__CONFIGURATIONS = eINSTANCE.getServiceType_Configurations();
+
+		/**
+		 * The meta object literal for the '<em><b>Operations</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SERVICE_TYPE__OPERATIONS = eINSTANCE.getServiceType_Operations();
+
+		/**
+		 * The meta object literal for the '{@link de.cau.cs.se.lad.types.impl.OperationImpl <em>Operation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.cau.cs.se.lad.types.impl.OperationImpl
+		 * @see de.cau.cs.se.lad.types.impl.TypesPackageImpl#getOperation()
+		 * @generated
+		 */
+		EClass OPERATION = eINSTANCE.getOperation();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OPERATION__TYPE = eINSTANCE.getOperation_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OPERATION__NAME = eINSTANCE.getOperation_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OPERATION__PARAMETERS = eINSTANCE.getOperation_Parameters();
+
+		/**
+		 * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OPERATION__EXPRESSION = eINSTANCE.getOperation_Expression();
 
 	}
 

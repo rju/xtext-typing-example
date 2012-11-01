@@ -79,20 +79,6 @@ public class AppLangSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case AppLangPackage.SERVICE:
-      {
-        Service service = (Service)theEObject;
-        T result = caseService(service);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AppLangPackage.OPERATION:
-      {
-        Operation operation = (Operation)theEObject;
-        T result = caseOperation(operation);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case AppLangPackage.EXPRESSION:
       {
         Expression expression = (Expression)theEObject;
@@ -178,22 +164,6 @@ public class AppLangSwitch<T> extends Switch<T>
       {
         Instance instance = (Instance)theEObject;
         T result = caseInstance(instance);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AppLangPackage.ARRAY_INSTANCE:
-      {
-        ArrayInstance arrayInstance = (ArrayInstance)theEObject;
-        T result = caseArrayInstance(arrayInstance);
-        if (result == null) result = caseInstance(arrayInstance);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AppLangPackage.SIMPLE_INSTANCE:
-      {
-        SimpleInstance simpleInstance = (SimpleInstance)theEObject;
-        T result = caseSimpleInstance(simpleInstance);
-        if (result == null) result = caseInstance(simpleInstance);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -287,38 +257,6 @@ public class AppLangSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseModel(Model object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Service</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Service</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseService(Service object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Operation</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Operation</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseOperation(Operation object)
   {
     return null;
   }
@@ -479,38 +417,6 @@ public class AppLangSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseInstance(Instance object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Array Instance</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Array Instance</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseArrayInstance(ArrayInstance object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Simple Instance</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Simple Instance</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseSimpleInstance(SimpleInstance object)
   {
     return null;
   }

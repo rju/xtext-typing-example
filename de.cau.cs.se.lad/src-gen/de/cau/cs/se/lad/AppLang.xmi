@@ -17,14 +17,14 @@
             <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.2"/>
           </elements>
           <elements xsi:type="xtext:Assignment" feature="views" operator="+=">
-            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.19"/>
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.17"/>
           </elements>
           <elements xsi:type="xtext:Assignment" feature="classes" operator="+=">
             <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.1"/>
           </elements>
         </elements>
         <elements xsi:type="xtext:Assignment" feature="model" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.14"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.15"/>
         </elements>
       </alternatives>
     </rules>
@@ -49,15 +49,15 @@
           </elements>
         </elements>
         <elements xsi:type="xtext:Keyword" value="{"/>
-        <elements xsi:type="xtext:Assignment" feature="properties" operator="+=">
+        <elements xsi:type="xtext:Assignment" cardinality="+" feature="properties" operator="+=">
           <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.13"/>
         </elements>
         <elements xsi:type="xtext:Keyword" value="}"/>
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="Service">
-      <type metamodel="/0/@metamodelDeclarations.1">
-        <classifier xsi:type="ecore:EClass" href="http://www.cau.de/cs/se/lad/AppLang#//Service"/>
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://se.cs.cau.de/lad/types#//ServiceType"/>
       </type>
       <alternatives xsi:type="xtext:Group">
         <elements xsi:type="xtext:Keyword" value="service"/>
@@ -76,24 +76,20 @@
         </elements>
         <elements xsi:type="xtext:Keyword" value=")"/>
         <elements xsi:type="xtext:Keyword" value="{"/>
-        <elements xsi:type="xtext:Assignment" feature="operations" operator="+=">
+        <elements xsi:type="xtext:Assignment" cardinality="+" feature="operations" operator="+=">
           <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.3"/>
         </elements>
         <elements xsi:type="xtext:Keyword" value="}"/>
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="Operation">
-      <type metamodel="/0/@metamodelDeclarations.1">
-        <classifier xsi:type="ecore:EClass" href="http://www.cau.de/cs/se/lad/AppLang#//Operation"/>
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://se.cs.cau.de/lad/types#//Operation"/>
       </type>
       <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Keyword" value="op"/>
         <elements xsi:type="xtext:Assignment" feature="type" operator="=">
-          <terminal xsi:type="xtext:CrossReference">
-            <type metamodel="/0/@metamodelDeclarations.0">
-              <classifier xsi:type="ecore:EClass" href="http://se.cs.cau.de/lad/types#//Type"/>
-            </type>
-            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
-          </terminal>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.14"/>
         </elements>
         <elements xsi:type="xtext:Assignment" feature="name" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
@@ -211,7 +207,7 @@
         <classifier xsi:type="ecore:EClass" href="http://www.cau.de/cs/se/lad/AppLang#//Function"/>
       </type>
       <alternatives xsi:type="xtext:Group">
-        <elements xsi:type="xtext:Assignment" feature="type" operator="=">
+        <elements xsi:type="xtext:Assignment" feature="name" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.12"/>
         </elements>
         <elements xsi:type="xtext:Keyword" value="("/>
@@ -256,15 +252,58 @@
       </type>
       <alternatives xsi:type="xtext:Group">
         <elements xsi:type="xtext:Assignment" feature="type" operator="=">
-          <terminal xsi:type="xtext:CrossReference">
-            <type metamodel="/0/@metamodelDeclarations.0">
-              <classifier xsi:type="ecore:EClass" href="http://se.cs.cau.de/lad/types#//Type"/>
-            </type>
-            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
-          </terminal>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.14"/>
         </elements>
         <elements xsi:type="xtext:Assignment" feature="name" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
+        </elements>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="TypeReference">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://se.cs.cau.de/lad/types#//TypeReference"/>
+      </type>
+      <alternatives xsi:type="xtext:Alternatives">
+        <elements xsi:type="xtext:Group">
+          <elements xsi:type="xtext:Action">
+            <type metamodel="/0/@metamodelDeclarations.0">
+              <classifier xsi:type="ecore:EClass" href="http://se.cs.cau.de/lad/types#//ArrayType"/>
+            </type>
+          </elements>
+          <elements xsi:type="xtext:Assignment" feature="type" operator="=">
+            <terminal xsi:type="xtext:CrossReference">
+              <type metamodel="/0/@metamodelDeclarations.0">
+                <classifier xsi:type="ecore:EClass" href="http://se.cs.cau.de/lad/types#//Type"/>
+              </type>
+              <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
+            </terminal>
+          </elements>
+          <elements xsi:type="xtext:Keyword" value="["/>
+          <elements xsi:type="xtext:Assignment" cardinality="?" feature="size" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.1"/>
+          </elements>
+          <elements xsi:type="xtext:Keyword" value="]"/>
+        </elements>
+        <elements xsi:type="xtext:Group">
+          <elements xsi:type="xtext:Action">
+            <type metamodel="/0/@metamodelDeclarations.0">
+              <classifier xsi:type="ecore:EClass" href="http://se.cs.cau.de/lad/types#//TypeReference"/>
+            </type>
+          </elements>
+          <elements xsi:type="xtext:Assignment" feature="type" operator="=">
+            <terminal xsi:type="xtext:CrossReference">
+              <type metamodel="/0/@metamodelDeclarations.0">
+                <classifier xsi:type="ecore:EClass" href="http://se.cs.cau.de/lad/types#//Type"/>
+              </type>
+              <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
+            </terminal>
+          </elements>
+          <elements xsi:type="xtext:Group" cardinality="?">
+            <elements xsi:type="xtext:Keyword" value="."/>
+            <elements xsi:type="xtext:Assignment" feature="remainder" operator="=">
+              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.14"/>
+            </elements>
+          </elements>
         </elements>
       </alternatives>
     </rules>
@@ -281,7 +320,7 @@
         <elements xsi:type="xtext:Keyword" value="model"/>
         <elements xsi:type="xtext:Keyword" value="{"/>
         <elements xsi:type="xtext:Assignment" cardinality="*" feature="instances" operator="+=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.15"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.16"/>
         </elements>
         <elements xsi:type="xtext:Keyword" value="start"/>
         <elements xsi:type="xtext:Assignment" feature="view" operator="=">
@@ -292,7 +331,6 @@
             <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
           </terminal>
         </elements>
-        <elements xsi:type="xtext:Keyword" value=";"/>
         <elements xsi:type="xtext:Keyword" value="}"/>
       </alternatives>
     </rules>
@@ -300,69 +338,14 @@
       <type metamodel="/0/@metamodelDeclarations.1">
         <classifier xsi:type="ecore:EClass" href="http://www.cau.de/cs/se/lad/AppLang#//Instance"/>
       </type>
-      <alternatives xsi:type="xtext:Alternatives">
-        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.16"/>
-        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.17"/>
-      </alternatives>
-    </rules>
-    <rules xsi:type="xtext:ParserRule" name="ArrayInstance">
-      <type metamodel="/0/@metamodelDeclarations.1">
-        <classifier xsi:type="ecore:EClass" href="http://www.cau.de/cs/se/lad/AppLang#//ArrayInstance"/>
-      </type>
       <alternatives xsi:type="xtext:Group">
         <elements xsi:type="xtext:Keyword" value="new"/>
         <elements xsi:type="xtext:Assignment" feature="type" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.18"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.14"/>
         </elements>
         <elements xsi:type="xtext:Assignment" feature="name" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
         </elements>
-        <elements xsi:type="xtext:Keyword" value=";"/>
-      </alternatives>
-    </rules>
-    <rules xsi:type="xtext:ParserRule" name="SimpleInstance">
-      <type metamodel="/0/@metamodelDeclarations.1">
-        <classifier xsi:type="ecore:EClass" href="http://www.cau.de/cs/se/lad/AppLang#//SimpleInstance"/>
-      </type>
-      <alternatives xsi:type="xtext:Group">
-        <elements xsi:type="xtext:Keyword" value="new"/>
-        <elements xsi:type="xtext:Assignment" feature="type" operator="=">
-          <terminal xsi:type="xtext:CrossReference">
-            <type metamodel="/0/@metamodelDeclarations.0">
-              <classifier xsi:type="ecore:EClass" href="http://se.cs.cau.de/lad/types#//Type"/>
-            </type>
-            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
-          </terminal>
-        </elements>
-        <elements xsi:type="xtext:Assignment" feature="name" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
-        </elements>
-        <elements xsi:type="xtext:Keyword" value=";"/>
-      </alternatives>
-    </rules>
-    <rules xsi:type="xtext:ParserRule" name="ArrayType">
-      <type metamodel="/0/@metamodelDeclarations.0">
-        <classifier xsi:type="ecore:EClass" href="http://se.cs.cau.de/lad/types#//Type"/>
-      </type>
-      <alternatives xsi:type="xtext:Group">
-        <elements xsi:type="xtext:Action">
-          <type metamodel="/0/@metamodelDeclarations.0">
-            <classifier xsi:type="ecore:EClass" href="http://se.cs.cau.de/lad/types#//ArrayType"/>
-          </type>
-        </elements>
-        <elements xsi:type="xtext:Assignment" feature="type" operator="=">
-          <terminal xsi:type="xtext:CrossReference">
-            <type metamodel="/0/@metamodelDeclarations.0">
-              <classifier xsi:type="ecore:EClass" href="http://se.cs.cau.de/lad/types#//Type"/>
-            </type>
-            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
-          </terminal>
-        </elements>
-        <elements xsi:type="xtext:Keyword" value="["/>
-        <elements xsi:type="xtext:Assignment" cardinality="?" feature="size" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.1"/>
-        </elements>
-        <elements xsi:type="xtext:Keyword" value="]"/>
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="View">
@@ -376,10 +359,10 @@
         </elements>
         <elements xsi:type="xtext:Keyword" value="{"/>
         <elements xsi:type="xtext:Assignment" feature="layout" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.24"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.22"/>
         </elements>
         <elements xsi:type="xtext:Assignment" cardinality="*" feature="contents" operator="+=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.20"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.18"/>
         </elements>
         <elements xsi:type="xtext:Keyword" value="}"/>
       </alternatives>
@@ -389,8 +372,8 @@
         <classifier xsi:type="ecore:EClass" href="http://www.cau.de/cs/se/lad/AppLang#//ViewContent"/>
       </type>
       <alternatives xsi:type="xtext:Alternatives">
-        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.22"/>
-        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.21"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.20"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.19"/>
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="ViewContainer">
@@ -401,10 +384,10 @@
         <elements xsi:type="xtext:Keyword" value="container"/>
         <elements xsi:type="xtext:Keyword" value="{"/>
         <elements xsi:type="xtext:Assignment" feature="layout" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.24"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.22"/>
         </elements>
         <elements xsi:type="xtext:Assignment" cardinality="*" feature="contents" operator="+=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.20"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.18"/>
         </elements>
         <elements xsi:type="xtext:Keyword" value="}"/>
       </alternatives>
@@ -415,7 +398,7 @@
       </type>
       <alternatives xsi:type="xtext:Group">
         <elements xsi:type="xtext:Assignment" feature="type" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.23"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.21"/>
         </elements>
         <elements xsi:type="xtext:Assignment" feature="name" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
@@ -430,19 +413,19 @@
       </type>
       <alternatives xsi:type="xtext:Alternatives">
         <elements xsi:type="xtext:EnumLiteralDeclaration">
-          <enumLiteral href="http://www.cau.de/cs/se/lad/AppLang#//ViewType/BUTTON"/>
+          <enumLiteral href="http://www.cau.de/cs/se/lad/AppLang#//ViewType/Button"/>
           <literal value="button"/>
         </elements>
         <elements xsi:type="xtext:EnumLiteralDeclaration">
-          <enumLiteral href="http://www.cau.de/cs/se/lad/AppLang#//ViewType/VSPIN"/>
+          <enumLiteral href="http://www.cau.de/cs/se/lad/AppLang#//ViewType/ValueSpinner"/>
           <literal value="value-spinner"/>
         </elements>
         <elements xsi:type="xtext:EnumLiteralDeclaration">
-          <enumLiteral href="http://www.cau.de/cs/se/lad/AppLang#//ViewType/DATESPIN"/>
+          <enumLiteral href="http://www.cau.de/cs/se/lad/AppLang#//ViewType/DateSpinner"/>
           <literal value="date-spinner"/>
         </elements>
         <elements xsi:type="xtext:EnumLiteralDeclaration">
-          <enumLiteral href="http://www.cau.de/cs/se/lad/AppLang#//ViewType/LABEL"/>
+          <enumLiteral href="http://www.cau.de/cs/se/lad/AppLang#//ViewType/Label"/>
           <literal value="label"/>
         </elements>
         <elements xsi:type="xtext:EnumLiteralDeclaration">
@@ -457,6 +440,10 @@
           <enumLiteral href="http://www.cau.de/cs/se/lad/AppLang#//ViewType/Canvas"/>
           <literal value="canvas"/>
         </elements>
+        <elements xsi:type="xtext:EnumLiteralDeclaration">
+          <enumLiteral href="http://www.cau.de/cs/se/lad/AppLang#//ViewType/TreeList"/>
+          <literal value="tree-list"/>
+        </elements>
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="Layout">
@@ -464,8 +451,8 @@
         <classifier xsi:type="ecore:EClass" href="http://www.cau.de/cs/se/lad/AppLang#//Layout"/>
       </type>
       <alternatives xsi:type="xtext:Alternatives">
-        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.27"/>
         <elements xsi:type="xtext:RuleCall" rule="/0/@rules.25"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.23"/>
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="GridLayout">
@@ -474,10 +461,10 @@
       </type>
       <alternatives xsi:type="xtext:Group">
         <elements xsi:type="xtext:Assignment" feature="size" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.28"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.26"/>
         </elements>
         <elements xsi:type="xtext:Assignment" feature="fields" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.26"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.24"/>
         </elements>
       </alternatives>
     </rules>
@@ -503,10 +490,10 @@
       </type>
       <alternatives xsi:type="xtext:Group">
         <elements xsi:type="xtext:Assignment" feature="size" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.28"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.26"/>
         </elements>
         <elements xsi:type="xtext:Assignment" feature="direction" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.31"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.29"/>
         </elements>
       </alternatives>
     </rules>
@@ -517,11 +504,11 @@
       <alternatives xsi:type="xtext:Group">
         <elements xsi:type="xtext:Keyword" value="&lt;"/>
         <elements xsi:type="xtext:Assignment" feature="width" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.29"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.27"/>
         </elements>
         <elements xsi:type="xtext:Keyword" value=","/>
         <elements xsi:type="xtext:Assignment" feature="height" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.29"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.27"/>
         </elements>
         <elements xsi:type="xtext:Keyword" value=">"/>
       </alternatives>
@@ -535,7 +522,7 @@
           <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.1"/>
         </elements>
         <elements xsi:type="xtext:Assignment" feature="unit" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.30"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.28"/>
         </elements>
       </alternatives>
     </rules>

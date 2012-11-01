@@ -4,7 +4,6 @@ package de.cau.cs.se.lad.appLang.impl;
 
 import de.cau.cs.se.lad.appLang.AppLangFactory;
 import de.cau.cs.se.lad.appLang.AppLangPackage;
-import de.cau.cs.se.lad.appLang.ArrayInstance;
 import de.cau.cs.se.lad.appLang.BaseExpression;
 import de.cau.cs.se.lad.appLang.DataModel;
 import de.cau.cs.se.lad.appLang.Direction;
@@ -17,9 +16,6 @@ import de.cau.cs.se.lad.appLang.Instance;
 import de.cau.cs.se.lad.appLang.Layout;
 import de.cau.cs.se.lad.appLang.Model;
 import de.cau.cs.se.lad.appLang.NullLiteral;
-import de.cau.cs.se.lad.appLang.Operation;
-import de.cau.cs.se.lad.appLang.Service;
-import de.cau.cs.se.lad.appLang.SimpleInstance;
 import de.cau.cs.se.lad.appLang.Size;
 import de.cau.cs.se.lad.appLang.SizeExpr;
 import de.cau.cs.se.lad.appLang.StackLayout;
@@ -58,20 +54,6 @@ public class AppLangPackageImpl extends EPackageImpl implements AppLangPackage
    * @generated
    */
   private EClass modelEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass serviceEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass operationEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -142,20 +124,6 @@ public class AppLangPackageImpl extends EPackageImpl implements AppLangPackage
    * @generated
    */
   private EClass instanceEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass arrayInstanceEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass simpleInstanceEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -376,96 +344,6 @@ public class AppLangPackageImpl extends EPackageImpl implements AppLangPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getService()
-  {
-    return serviceEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getService_Name()
-  {
-    return (EAttribute)serviceEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getService_Configurations()
-  {
-    return (EReference)serviceEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getService_Operations()
-  {
-    return (EReference)serviceEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getOperation()
-  {
-    return operationEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getOperation_Type()
-  {
-    return (EReference)operationEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getOperation_Name()
-  {
-    return (EAttribute)operationEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getOperation_Parameters()
-  {
-    return (EReference)operationEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getOperation_Expression()
-  {
-    return (EReference)operationEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getExpression()
   {
     return expressionEClass;
@@ -586,7 +464,7 @@ public class AppLangPackageImpl extends EPackageImpl implements AppLangPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getFunction_Type()
+  public EAttribute getFunction_Name()
   {
     return (EAttribute)functionEClass.getEStructuralFeatures().get(0);
   }
@@ -646,49 +524,19 @@ public class AppLangPackageImpl extends EPackageImpl implements AppLangPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getInstance_Type()
+  {
+    return (EReference)instanceEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EAttribute getInstance_Name()
   {
-    return (EAttribute)instanceEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getArrayInstance()
-  {
-    return arrayInstanceEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getArrayInstance_Type()
-  {
-    return (EReference)arrayInstanceEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getSimpleInstance()
-  {
-    return simpleInstanceEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getSimpleInstance_Type()
-  {
-    return (EReference)simpleInstanceEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)instanceEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1027,17 +875,6 @@ public class AppLangPackageImpl extends EPackageImpl implements AppLangPackage
     createEReference(modelEClass, MODEL__CLASSES);
     createEReference(modelEClass, MODEL__MODEL);
 
-    serviceEClass = createEClass(SERVICE);
-    createEAttribute(serviceEClass, SERVICE__NAME);
-    createEReference(serviceEClass, SERVICE__CONFIGURATIONS);
-    createEReference(serviceEClass, SERVICE__OPERATIONS);
-
-    operationEClass = createEClass(OPERATION);
-    createEReference(operationEClass, OPERATION__TYPE);
-    createEAttribute(operationEClass, OPERATION__NAME);
-    createEReference(operationEClass, OPERATION__PARAMETERS);
-    createEReference(operationEClass, OPERATION__EXPRESSION);
-
     expressionEClass = createEClass(EXPRESSION);
     createEReference(expressionEClass, EXPRESSION__LEFT);
     createEReference(expressionEClass, EXPRESSION__RIGHT);
@@ -1057,7 +894,7 @@ public class AppLangPackageImpl extends EPackageImpl implements AppLangPackage
     nullLiteralEClass = createEClass(NULL_LITERAL);
 
     functionEClass = createEClass(FUNCTION);
-    createEAttribute(functionEClass, FUNCTION__TYPE);
+    createEAttribute(functionEClass, FUNCTION__NAME);
     createEReference(functionEClass, FUNCTION__EXPRESSIONS);
 
     dataModelEClass = createEClass(DATA_MODEL);
@@ -1065,13 +902,8 @@ public class AppLangPackageImpl extends EPackageImpl implements AppLangPackage
     createEReference(dataModelEClass, DATA_MODEL__VIEW);
 
     instanceEClass = createEClass(INSTANCE);
+    createEReference(instanceEClass, INSTANCE__TYPE);
     createEAttribute(instanceEClass, INSTANCE__NAME);
-
-    arrayInstanceEClass = createEClass(ARRAY_INSTANCE);
-    createEReference(arrayInstanceEClass, ARRAY_INSTANCE__TYPE);
-
-    simpleInstanceEClass = createEClass(SIMPLE_INSTANCE);
-    createEReference(simpleInstanceEClass, SIMPLE_INSTANCE__TYPE);
 
     viewEClass = createEClass(VIEW);
     createEAttribute(viewEClass, VIEW__NAME);
@@ -1155,8 +987,6 @@ public class AppLangPackageImpl extends EPackageImpl implements AppLangPackage
     stringLiteralEClass.getESuperTypes().add(this.getStringValue());
     nullLiteralEClass.getESuperTypes().add(this.getBaseExpression());
     functionEClass.getESuperTypes().add(this.getBaseExpression());
-    arrayInstanceEClass.getESuperTypes().add(this.getInstance());
-    simpleInstanceEClass.getESuperTypes().add(this.getInstance());
     viewContainerEClass.getESuperTypes().add(this.getViewContent());
     viewElementEClass.getESuperTypes().add(this.getViewContent());
     gridLayoutEClass.getESuperTypes().add(this.getLayout());
@@ -1164,21 +994,10 @@ public class AppLangPackageImpl extends EPackageImpl implements AppLangPackage
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getModel_Services(), this.getService(), null, "services", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModel_Services(), theTypesPackage.getServiceType(), null, "services", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModel_Views(), this.getView(), null, "views", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModel_Classes(), theTypesPackage.getClassType(), null, "classes", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModel_Model(), this.getDataModel(), null, "model", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(serviceEClass, Service.class, "Service", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getService_Name(), ecorePackage.getEString(), "name", null, 0, 1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getService_Configurations(), theTypesPackage.getProperty(), null, "configurations", null, 0, -1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getService_Operations(), this.getOperation(), null, "operations", null, 0, -1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(operationEClass, Operation.class, "Operation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getOperation_Type(), theTypesPackage.getType(), null, "type", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getOperation_Name(), ecorePackage.getEString(), "name", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getOperation_Parameters(), theTypesPackage.getProperty(), null, "parameters", null, 0, -1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getOperation_Expression(), this.getExpression(), null, "expression", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getExpression_Left(), this.getBaseExpression(), null, "left", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1199,7 +1018,7 @@ public class AppLangPackageImpl extends EPackageImpl implements AppLangPackage
     initEClass(nullLiteralEClass, NullLiteral.class, "NullLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(functionEClass, Function.class, "Function", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getFunction_Type(), this.getFunctionEnum(), "type", null, 0, 1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFunction_Name(), this.getFunctionEnum(), "name", null, 0, 1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getFunction_Expressions(), this.getExpression(), null, "expressions", null, 0, -1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dataModelEClass, DataModel.class, "DataModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1207,13 +1026,8 @@ public class AppLangPackageImpl extends EPackageImpl implements AppLangPackage
     initEReference(getDataModel_View(), this.getInstance(), null, "view", null, 0, 1, DataModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(instanceEClass, Instance.class, "Instance", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getInstance_Type(), theTypesPackage.getTypeReference(), null, "type", null, 0, 1, Instance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getInstance_Name(), ecorePackage.getEString(), "name", null, 0, 1, Instance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(arrayInstanceEClass, ArrayInstance.class, "ArrayInstance", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getArrayInstance_Type(), theTypesPackage.getType(), null, "type", null, 0, 1, ArrayInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(simpleInstanceEClass, SimpleInstance.class, "SimpleInstance", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getSimpleInstance_Type(), theTypesPackage.getType(), null, "type", null, 0, 1, SimpleInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(viewEClass, View.class, "View", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getView_Name(), ecorePackage.getEString(), "name", null, 0, 1, View.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1260,12 +1074,13 @@ public class AppLangPackageImpl extends EPackageImpl implements AppLangPackage
 
     initEEnum(viewTypeEEnum, ViewType.class, "ViewType");
     addEEnumLiteral(viewTypeEEnum, ViewType.BUTTON);
-    addEEnumLiteral(viewTypeEEnum, ViewType.VSPIN);
-    addEEnumLiteral(viewTypeEEnum, ViewType.DATESPIN);
+    addEEnumLiteral(viewTypeEEnum, ViewType.VALUE_SPINNER);
+    addEEnumLiteral(viewTypeEEnum, ViewType.DATE_SPINNER);
     addEEnumLiteral(viewTypeEEnum, ViewType.LABEL);
     addEEnumLiteral(viewTypeEEnum, ViewType.TEXT_OUTPUT);
     addEEnumLiteral(viewTypeEEnum, ViewType.INPUT_FIELD);
     addEEnumLiteral(viewTypeEEnum, ViewType.CANVAS);
+    addEEnumLiteral(viewTypeEEnum, ViewType.TREE_LIST);
 
     initEEnum(unitEEnum, Unit.class, "Unit");
     addEEnumLiteral(unitEEnum, Unit.PX);

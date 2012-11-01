@@ -12,7 +12,7 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.cau.cs.se.lad.appLang.Function#getType <em>Type</em>}</li>
+ *   <li>{@link de.cau.cs.se.lad.appLang.Function#getName <em>Name</em>}</li>
  *   <li>{@link de.cau.cs.se.lad.appLang.Function#getExpressions <em>Expressions</em>}</li>
  * </ul>
  * </p>
@@ -24,33 +24,33 @@ import org.eclipse.emf.common.util.EList;
 public interface Function extends BaseExpression
 {
   /**
-   * Returns the value of the '<em><b>Type</b></em>' attribute.
+   * Returns the value of the '<em><b>Name</b></em>' attribute.
    * The literals are from the enumeration {@link de.cau.cs.se.lad.appLang.FunctionEnum}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Type</em>' attribute isn't clear,
+   * If the meaning of the '<em>Name</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Type</em>' attribute.
+   * @return the value of the '<em>Name</em>' attribute.
    * @see de.cau.cs.se.lad.appLang.FunctionEnum
-   * @see #setType(FunctionEnum)
-   * @see de.cau.cs.se.lad.appLang.AppLangPackage#getFunction_Type()
+   * @see #setName(FunctionEnum)
+   * @see de.cau.cs.se.lad.appLang.AppLangPackage#getFunction_Name()
    * @model
    * @generated
    */
-  FunctionEnum getType();
+  FunctionEnum getName();
 
   /**
-   * Sets the value of the '{@link de.cau.cs.se.lad.appLang.Function#getType <em>Type</em>}' attribute.
+   * Sets the value of the '{@link de.cau.cs.se.lad.appLang.Function#getName <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Type</em>' attribute.
+   * @param value the new value of the '<em>Name</em>' attribute.
    * @see de.cau.cs.se.lad.appLang.FunctionEnum
-   * @see #getType()
+   * @see #getName()
    * @generated
    */
-  void setType(FunctionEnum value);
+  void setName(FunctionEnum value);
 
   /**
    * Returns the value of the '<em><b>Expressions</b></em>' containment reference list.

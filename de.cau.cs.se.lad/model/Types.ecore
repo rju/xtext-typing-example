@@ -12,11 +12,31 @@
         eType="#//Property" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Property">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//Type"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//TypeReference"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ArrayType" eSuperTypes="#//UserType">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//Type"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ArrayType" eSuperTypes="#//TypeReference">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TypeReference">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Type"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="remainder" eType="#//TypeReference"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ServiceType" eSuperTypes="#//UserType">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="configurations" upperBound="-1"
+        eType="#//Property" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operations" upperBound="-1"
+        eType="#//Operation" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Operation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//TypeReference"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
+        eType="#//Property" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+        containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

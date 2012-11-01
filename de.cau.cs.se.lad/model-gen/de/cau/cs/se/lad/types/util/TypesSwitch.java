@@ -103,8 +103,27 @@ public class TypesSwitch<T> extends Switch<T> {
 			case TypesPackage.ARRAY_TYPE: {
 				ArrayType arrayType = (ArrayType)theEObject;
 				T result = caseArrayType(arrayType);
-				if (result == null) result = caseUserType(arrayType);
-				if (result == null) result = caseType(arrayType);
+				if (result == null) result = caseTypeReference(arrayType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case TypesPackage.TYPE_REFERENCE: {
+				TypeReference typeReference = (TypeReference)theEObject;
+				T result = caseTypeReference(typeReference);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case TypesPackage.SERVICE_TYPE: {
+				ServiceType serviceType = (ServiceType)theEObject;
+				T result = caseServiceType(serviceType);
+				if (result == null) result = caseUserType(serviceType);
+				if (result == null) result = caseType(serviceType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case TypesPackage.OPERATION: {
+				Operation operation = (Operation)theEObject;
+				T result = caseOperation(operation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -199,6 +218,51 @@ public class TypesSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseArrayType(ArrayType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Type Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Type Reference</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTypeReference(TypeReference object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Service Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Service Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseServiceType(ServiceType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Operation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Operation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOperation(Operation object) {
 		return null;
 	}
 

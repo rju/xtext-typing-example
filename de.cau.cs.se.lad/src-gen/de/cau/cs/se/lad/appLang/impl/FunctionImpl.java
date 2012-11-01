@@ -29,7 +29,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.cau.cs.se.lad.appLang.impl.FunctionImpl#getType <em>Type</em>}</li>
+ *   <li>{@link de.cau.cs.se.lad.appLang.impl.FunctionImpl#getName <em>Name</em>}</li>
  *   <li>{@link de.cau.cs.se.lad.appLang.impl.FunctionImpl#getExpressions <em>Expressions</em>}</li>
  * </ul>
  * </p>
@@ -39,24 +39,24 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class FunctionImpl extends BaseExpressionImpl implements Function
 {
   /**
-   * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getType()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected static final FunctionEnum TYPE_EDEFAULT = FunctionEnum.DECODE;
+  protected static final FunctionEnum NAME_EDEFAULT = FunctionEnum.DECODE;
 
   /**
-   * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getType()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected FunctionEnum type = TYPE_EDEFAULT;
+  protected FunctionEnum name = NAME_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getExpressions() <em>Expressions</em>}' containment reference list.
@@ -94,9 +94,9 @@ public class FunctionImpl extends BaseExpressionImpl implements Function
    * <!-- end-user-doc -->
    * @generated
    */
-  public FunctionEnum getType()
+  public FunctionEnum getName()
   {
-    return type;
+    return name;
   }
 
   /**
@@ -104,12 +104,12 @@ public class FunctionImpl extends BaseExpressionImpl implements Function
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setType(FunctionEnum newType)
+  public void setName(FunctionEnum newName)
   {
-    FunctionEnum oldType = type;
-    type = newType == null ? TYPE_EDEFAULT : newType;
+    FunctionEnum oldName = name;
+    name = newName == null ? NAME_EDEFAULT : newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AppLangPackage.FUNCTION__TYPE, oldType, type));
+      eNotify(new ENotificationImpl(this, Notification.SET, AppLangPackage.FUNCTION__NAME, oldName, name));
   }
 
   /**
@@ -152,8 +152,8 @@ public class FunctionImpl extends BaseExpressionImpl implements Function
   {
     switch (featureID)
     {
-      case AppLangPackage.FUNCTION__TYPE:
-        return getType();
+      case AppLangPackage.FUNCTION__NAME:
+        return getName();
       case AppLangPackage.FUNCTION__EXPRESSIONS:
         return getExpressions();
     }
@@ -171,8 +171,8 @@ public class FunctionImpl extends BaseExpressionImpl implements Function
   {
     switch (featureID)
     {
-      case AppLangPackage.FUNCTION__TYPE:
-        setType((FunctionEnum)newValue);
+      case AppLangPackage.FUNCTION__NAME:
+        setName((FunctionEnum)newValue);
         return;
       case AppLangPackage.FUNCTION__EXPRESSIONS:
         getExpressions().clear();
@@ -192,8 +192,8 @@ public class FunctionImpl extends BaseExpressionImpl implements Function
   {
     switch (featureID)
     {
-      case AppLangPackage.FUNCTION__TYPE:
-        setType(TYPE_EDEFAULT);
+      case AppLangPackage.FUNCTION__NAME:
+        setName(NAME_EDEFAULT);
         return;
       case AppLangPackage.FUNCTION__EXPRESSIONS:
         getExpressions().clear();
@@ -212,8 +212,8 @@ public class FunctionImpl extends BaseExpressionImpl implements Function
   {
     switch (featureID)
     {
-      case AppLangPackage.FUNCTION__TYPE:
-        return type != TYPE_EDEFAULT;
+      case AppLangPackage.FUNCTION__NAME:
+        return name != NAME_EDEFAULT;
       case AppLangPackage.FUNCTION__EXPRESSIONS:
         return expressions != null && !expressions.isEmpty();
     }
@@ -231,8 +231,8 @@ public class FunctionImpl extends BaseExpressionImpl implements Function
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (type: ");
-    result.append(type);
+    result.append(" (name: ");
+    result.append(name);
     result.append(')');
     return result.toString();
   }

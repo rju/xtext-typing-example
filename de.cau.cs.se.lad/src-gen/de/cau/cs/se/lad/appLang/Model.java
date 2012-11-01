@@ -3,6 +3,7 @@
 package de.cau.cs.se.lad.appLang;
 
 import de.cau.cs.se.lad.types.ClassType;
+import de.cau.cs.se.lad.types.ServiceType;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -31,7 +32,7 @@ public interface Model extends EObject
 {
   /**
    * Returns the value of the '<em><b>Services</b></em>' containment reference list.
-   * The list contents are of type {@link de.cau.cs.se.lad.appLang.Service}.
+   * The list contents are of type {@link de.cau.cs.se.lad.types.ServiceType}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Services</em>' containment reference list isn't clear,
@@ -43,7 +44,7 @@ public interface Model extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<Service> getServices();
+  EList<ServiceType> getServices();
 
   /**
    * Returns the value of the '<em><b>Views</b></em>' containment reference list.

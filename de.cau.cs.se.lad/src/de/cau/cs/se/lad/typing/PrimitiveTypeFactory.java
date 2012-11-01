@@ -1,12 +1,12 @@
 /*
- * KIELER - Kiel Integrated Environment for Layout Eclipse RichClient
+ * Science Blog
  *
- * http://www.informatik.uni-kiel.de/rtsys/kieler/
+ * http://se.informatik.uni-kiel.de
  * 
  * Copyright 2012 by
  * + Christian-Albrechts-University of Kiel
  *   + Department of Computer Science
- *     + Real-Time and Embedded Systems Group
+ *     + Software Engineering Group
  * 
  * This code is provided under the terms of the Eclipse Public License (EPL).
  * See the file epl-v10.html for the license text.
@@ -17,20 +17,19 @@ import de.cau.cs.se.lad.types.TypesFactory;
 import de.cau.cs.se.lad.types.Type;
 
 /**
- * This class is a derivative of {@link org.eclipse.xtext.common.types.access.impl.PrimitiveTypeFactory
- * PrimitiveTypeFactory}.
- * 
- * @author chsch
+ * @author chsch -- initial contribution
+ * @author rju -- cleanups
  */
-@SuppressWarnings("restriction")
 public class PrimitiveTypeFactory implements ITypeFactory<String>{
 
     /**
-     * {@inheritDoc}
+     * Create a new type and initialize it with the correct name.
+     * 
+     * @param name the name of the type to create.
      */
-    public Type createType(String type) {
+    public Type createType(String name) {
         Type result = TypesFactory.eINSTANCE.createPrimitiveType();
-        result.setName(type);
+        result.setName(name);
         return result;
     }
 

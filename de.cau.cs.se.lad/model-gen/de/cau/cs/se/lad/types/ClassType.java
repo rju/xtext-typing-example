@@ -49,7 +49,7 @@ public interface ClassType extends UserType {
 	void setParent(ClassType value);
 
 	/**
-	 * Returns the value of the '<em><b>Properties</b></em>' reference list.
+	 * Returns the value of the '<em><b>Properties</b></em>' containment reference list.
 	 * The list contents are of type {@link de.cau.cs.se.lad.types.Property}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -57,9 +57,9 @@ public interface ClassType extends UserType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Properties</em>' reference list.
+	 * @return the value of the '<em>Properties</em>' containment reference list.
 	 * @see de.cau.cs.se.lad.types.TypesPackage#getClassType_Properties()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Property> getProperties();

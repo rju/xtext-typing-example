@@ -3,17 +3,14 @@ package de.cau.cs.se.lad.serializer;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 import de.cau.cs.se.lad.appLang.AppLangPackage;
-import de.cau.cs.se.lad.appLang.ArrayInstance;
 import de.cau.cs.se.lad.appLang.DataModel;
 import de.cau.cs.se.lad.appLang.Expression;
 import de.cau.cs.se.lad.appLang.Field;
 import de.cau.cs.se.lad.appLang.Function;
 import de.cau.cs.se.lad.appLang.GridLayout;
+import de.cau.cs.se.lad.appLang.Instance;
 import de.cau.cs.se.lad.appLang.Model;
 import de.cau.cs.se.lad.appLang.NullLiteral;
-import de.cau.cs.se.lad.appLang.Operation;
-import de.cau.cs.se.lad.appLang.Service;
-import de.cau.cs.se.lad.appLang.SimpleInstance;
 import de.cau.cs.se.lad.appLang.Size;
 import de.cau.cs.se.lad.appLang.SizeExpr;
 import de.cau.cs.se.lad.appLang.StackLayout;
@@ -26,7 +23,10 @@ import de.cau.cs.se.lad.appLang.ViewElement;
 import de.cau.cs.se.lad.services.AppLangGrammarAccess;
 import de.cau.cs.se.lad.types.ArrayType;
 import de.cau.cs.se.lad.types.ClassType;
+import de.cau.cs.se.lad.types.Operation;
 import de.cau.cs.se.lad.types.Property;
+import de.cau.cs.se.lad.types.ServiceType;
+import de.cau.cs.se.lad.types.TypeReference;
 import de.cau.cs.se.lad.types.TypesPackage;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.serializer.acceptor.ISemanticSequenceAcceptor;
@@ -48,13 +48,6 @@ public class AppLangSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	public void createSequence(EObject context, EObject semanticObject) {
 		if(semanticObject.eClass().getEPackage() == AppLangPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
-			case AppLangPackage.ARRAY_INSTANCE:
-				if(context == grammarAccess.getArrayInstanceRule() ||
-				   context == grammarAccess.getInstanceRule()) {
-					sequence_ArrayInstance(context, (ArrayInstance) semanticObject); 
-					return; 
-				}
-				else break;
 			case AppLangPackage.DATA_MODEL:
 				if(context == grammarAccess.getDataModelRule()) {
 					sequence_DataModel(context, (DataModel) semanticObject); 
@@ -89,6 +82,12 @@ public class AppLangSemanticSequencer extends AbstractDelegatingSemanticSequence
 					return; 
 				}
 				else break;
+			case AppLangPackage.INSTANCE:
+				if(context == grammarAccess.getInstanceRule()) {
+					sequence_Instance(context, (Instance) semanticObject); 
+					return; 
+				}
+				else break;
 			case AppLangPackage.MODEL:
 				if(context == grammarAccess.getModelRule()) {
 					sequence_Model(context, (Model) semanticObject); 
@@ -101,25 +100,6 @@ public class AppLangSemanticSequencer extends AbstractDelegatingSemanticSequence
 				   context == grammarAccess.getExpressionAccess().getExpressionLeftAction_1_0() ||
 				   context == grammarAccess.getNullLiteralRule()) {
 					sequence_NullLiteral(context, (NullLiteral) semanticObject); 
-					return; 
-				}
-				else break;
-			case AppLangPackage.OPERATION:
-				if(context == grammarAccess.getOperationRule()) {
-					sequence_Operation(context, (Operation) semanticObject); 
-					return; 
-				}
-				else break;
-			case AppLangPackage.SERVICE:
-				if(context == grammarAccess.getServiceRule()) {
-					sequence_Service(context, (Service) semanticObject); 
-					return; 
-				}
-				else break;
-			case AppLangPackage.SIMPLE_INSTANCE:
-				if(context == grammarAccess.getInstanceRule() ||
-				   context == grammarAccess.getSimpleInstanceRule()) {
-					sequence_SimpleInstance(context, (SimpleInstance) semanticObject); 
 					return; 
 				}
 				else break;
@@ -199,8 +179,8 @@ public class AppLangSemanticSequencer extends AbstractDelegatingSemanticSequence
 			}
 		else if(semanticObject.eClass().getEPackage() == TypesPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
 			case TypesPackage.ARRAY_TYPE:
-				if(context == grammarAccess.getArrayTypeRule()) {
-					sequence_ArrayType(context, (ArrayType) semanticObject); 
+				if(context == grammarAccess.getTypeReferenceRule()) {
+					sequence_TypeReference(context, (ArrayType) semanticObject); 
 					return; 
 				}
 				else break;
@@ -210,9 +190,27 @@ public class AppLangSemanticSequencer extends AbstractDelegatingSemanticSequence
 					return; 
 				}
 				else break;
+			case TypesPackage.OPERATION:
+				if(context == grammarAccess.getOperationRule()) {
+					sequence_Operation(context, (Operation) semanticObject); 
+					return; 
+				}
+				else break;
 			case TypesPackage.PROPERTY:
 				if(context == grammarAccess.getPropertyRule()) {
 					sequence_Property(context, (Property) semanticObject); 
+					return; 
+				}
+				else break;
+			case TypesPackage.SERVICE_TYPE:
+				if(context == grammarAccess.getServiceRule()) {
+					sequence_Service(context, (ServiceType) semanticObject); 
+					return; 
+				}
+				else break;
+			case TypesPackage.TYPE_REFERENCE:
+				if(context == grammarAccess.getTypeReferenceRule()) {
+					sequence_TypeReference(context, (TypeReference) semanticObject); 
 					return; 
 				}
 				else break;
@@ -222,35 +220,7 @@ public class AppLangSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Constraint:
-	 *     (type=ArrayType name=ID)
-	 */
-	protected void sequence_ArrayInstance(EObject context, ArrayInstance semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, AppLangPackage.Literals.INSTANCE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AppLangPackage.Literals.INSTANCE__NAME));
-			if(transientValues.isValueTransient(semanticObject, AppLangPackage.Literals.ARRAY_INSTANCE__TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AppLangPackage.Literals.ARRAY_INSTANCE__TYPE));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getArrayInstanceAccess().getTypeArrayTypeParserRuleCall_1_0(), semanticObject.getType());
-		feeder.accept(grammarAccess.getArrayInstanceAccess().getNameIDTerminalRuleCall_2_0(), semanticObject.getName());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (type=[Type|ID] size=INT?)
-	 */
-	protected void sequence_ArrayType(EObject context, ArrayType semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (name=ID parent=[ClassType|ID]? properties+=Property)
+	 *     (name=ID parent=[ClassType|ID]? properties+=Property+)
 	 */
 	protected void sequence_Class(EObject context, ClassType semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -306,7 +276,7 @@ public class AppLangSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Constraint:
-	 *     (type=FunctionEnum expressions+=Expression expressions+=Expression*)
+	 *     (name=FunctionEnum expressions+=Expression expressions+=Expression*)
 	 */
 	protected void sequence_Function(EObject context, Function semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -334,6 +304,25 @@ public class AppLangSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Constraint:
+	 *     (type=TypeReference name=ID)
+	 */
+	protected void sequence_Instance(EObject context, Instance semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, AppLangPackage.Literals.INSTANCE__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AppLangPackage.Literals.INSTANCE__TYPE));
+			if(transientValues.isValueTransient(semanticObject, AppLangPackage.Literals.INSTANCE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AppLangPackage.Literals.INSTANCE__NAME));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getInstanceAccess().getTypeTypeReferenceParserRuleCall_1_0(), semanticObject.getType());
+		feeder.accept(grammarAccess.getInstanceAccess().getNameIDTerminalRuleCall_2_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     ((services+=Service | views+=View | classes+=Class)* model=DataModel)
 	 */
 	protected void sequence_Model(EObject context, Model semanticObject) {
@@ -352,7 +341,7 @@ public class AppLangSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Constraint:
-	 *     (type=[Type|ID] name=ID parameters+=Property parameters+=Property* expression=Expression)
+	 *     (type=TypeReference name=ID parameters+=Property parameters+=Property* expression=Expression)
 	 */
 	protected void sequence_Operation(EObject context, Operation semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -361,7 +350,7 @@ public class AppLangSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Constraint:
-	 *     (type=[Type|ID] name=ID)
+	 *     (type=TypeReference name=ID)
 	 */
 	protected void sequence_Property(EObject context, Property semanticObject) {
 		if(errorAcceptor != null) {
@@ -372,7 +361,7 @@ public class AppLangSemanticSequencer extends AbstractDelegatingSemanticSequence
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getPropertyAccess().getTypeTypeIDTerminalRuleCall_0_0_1(), semanticObject.getType());
+		feeder.accept(grammarAccess.getPropertyAccess().getTypeTypeReferenceParserRuleCall_0_0(), semanticObject.getType());
 		feeder.accept(grammarAccess.getPropertyAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
 		feeder.finish();
 	}
@@ -380,29 +369,10 @@ public class AppLangSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Constraint:
-	 *     (name=ID configurations+=Property configurations+=Property* operations+=Operation)
+	 *     (name=ID configurations+=Property configurations+=Property* operations+=Operation+)
 	 */
-	protected void sequence_Service(EObject context, Service semanticObject) {
+	protected void sequence_Service(EObject context, ServiceType semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (type=[Type|ID] name=ID)
-	 */
-	protected void sequence_SimpleInstance(EObject context, SimpleInstance semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, AppLangPackage.Literals.INSTANCE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AppLangPackage.Literals.INSTANCE__NAME));
-			if(transientValues.isValueTransient(semanticObject, AppLangPackage.Literals.SIMPLE_INSTANCE__TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AppLangPackage.Literals.SIMPLE_INSTANCE__TYPE));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getSimpleInstanceAccess().getTypeTypeIDTerminalRuleCall_1_0_1(), semanticObject.getType());
-		feeder.accept(grammarAccess.getSimpleInstanceAccess().getNameIDTerminalRuleCall_2_0(), semanticObject.getName());
-		feeder.finish();
 	}
 	
 	
@@ -496,6 +466,24 @@ public class AppLangSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     reference=[Property|ID]
 	 */
 	protected void sequence_StringProperty(EObject context, StringProperty semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (type=[Type|ID] size=INT?)
+	 */
+	protected void sequence_TypeReference(EObject context, ArrayType semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (type=[Type|ID] remainder=TypeReference?)
+	 */
+	protected void sequence_TypeReference(EObject context, TypeReference semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

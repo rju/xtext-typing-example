@@ -21,7 +21,7 @@ import org.eclipse.xtext.common.types.access.jdt.TypeURIHelper;
  */
 public class LadTypeURIHelper extends TypeURIHelper {
 
-    public URI createResourceURI(String signature) {
+    public URI createResourceURI() {
         return URI.createURI(LadURIHelperConstants.PROTOCOL + ':' + LadURIHelperConstants.PRIMITIVES);
     }
     

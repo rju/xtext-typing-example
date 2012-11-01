@@ -113,107 +113,6 @@ public interface AppLangPackage extends EPackage
   int MODEL_FEATURE_COUNT = 4;
 
   /**
-   * The meta object id for the '{@link de.cau.cs.se.lad.appLang.impl.ServiceImpl <em>Service</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see de.cau.cs.se.lad.appLang.impl.ServiceImpl
-   * @see de.cau.cs.se.lad.appLang.impl.AppLangPackageImpl#getService()
-   * @generated
-   */
-  int SERVICE = 1;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SERVICE__NAME = 0;
-
-  /**
-   * The feature id for the '<em><b>Configurations</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SERVICE__CONFIGURATIONS = 1;
-
-  /**
-   * The feature id for the '<em><b>Operations</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SERVICE__OPERATIONS = 2;
-
-  /**
-   * The number of structural features of the '<em>Service</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SERVICE_FEATURE_COUNT = 3;
-
-  /**
-   * The meta object id for the '{@link de.cau.cs.se.lad.appLang.impl.OperationImpl <em>Operation</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see de.cau.cs.se.lad.appLang.impl.OperationImpl
-   * @see de.cau.cs.se.lad.appLang.impl.AppLangPackageImpl#getOperation()
-   * @generated
-   */
-  int OPERATION = 2;
-
-  /**
-   * The feature id for the '<em><b>Type</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int OPERATION__TYPE = 0;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int OPERATION__NAME = 1;
-
-  /**
-   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int OPERATION__PARAMETERS = 2;
-
-  /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int OPERATION__EXPRESSION = 3;
-
-  /**
-   * The number of structural features of the '<em>Operation</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int OPERATION_FEATURE_COUNT = 4;
-
-  /**
    * The meta object id for the '{@link de.cau.cs.se.lad.appLang.impl.ExpressionImpl <em>Expression</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -221,7 +120,7 @@ public interface AppLangPackage extends EPackage
    * @see de.cau.cs.se.lad.appLang.impl.AppLangPackageImpl#getExpression()
    * @generated
    */
-  int EXPRESSION = 3;
+  int EXPRESSION = 1;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -258,7 +157,7 @@ public interface AppLangPackage extends EPackage
    * @see de.cau.cs.se.lad.appLang.impl.AppLangPackageImpl#getBaseExpression()
    * @generated
    */
-  int BASE_EXPRESSION = 4;
+  int BASE_EXPRESSION = 2;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -295,7 +194,7 @@ public interface AppLangPackage extends EPackage
    * @see de.cau.cs.se.lad.appLang.impl.AppLangPackageImpl#getStringExpression()
    * @generated
    */
-  int STRING_EXPRESSION = 5;
+  int STRING_EXPRESSION = 3;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -332,7 +231,7 @@ public interface AppLangPackage extends EPackage
    * @see de.cau.cs.se.lad.appLang.impl.AppLangPackageImpl#getStringValue()
    * @generated
    */
-  int STRING_VALUE = 6;
+  int STRING_VALUE = 4;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -369,7 +268,7 @@ public interface AppLangPackage extends EPackage
    * @see de.cau.cs.se.lad.appLang.impl.AppLangPackageImpl#getStringProperty()
    * @generated
    */
-  int STRING_PROPERTY = 7;
+  int STRING_PROPERTY = 5;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -415,7 +314,7 @@ public interface AppLangPackage extends EPackage
    * @see de.cau.cs.se.lad.appLang.impl.AppLangPackageImpl#getStringLiteral()
    * @generated
    */
-  int STRING_LITERAL = 8;
+  int STRING_LITERAL = 6;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -461,7 +360,7 @@ public interface AppLangPackage extends EPackage
    * @see de.cau.cs.se.lad.appLang.impl.AppLangPackageImpl#getNullLiteral()
    * @generated
    */
-  int NULL_LITERAL = 9;
+  int NULL_LITERAL = 7;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -498,7 +397,7 @@ public interface AppLangPackage extends EPackage
    * @see de.cau.cs.se.lad.appLang.impl.AppLangPackageImpl#getFunction()
    * @generated
    */
-  int FUNCTION = 10;
+  int FUNCTION = 8;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -519,13 +418,13 @@ public interface AppLangPackage extends EPackage
   int FUNCTION__RIGHT = BASE_EXPRESSION__RIGHT;
 
   /**
-   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FUNCTION__TYPE = BASE_EXPRESSION_FEATURE_COUNT + 0;
+  int FUNCTION__NAME = BASE_EXPRESSION_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Expressions</b></em>' containment reference list.
@@ -553,7 +452,7 @@ public interface AppLangPackage extends EPackage
    * @see de.cau.cs.se.lad.appLang.impl.AppLangPackageImpl#getDataModel()
    * @generated
    */
-  int DATA_MODEL = 11;
+  int DATA_MODEL = 9;
 
   /**
    * The feature id for the '<em><b>Instances</b></em>' containment reference list.
@@ -590,44 +489,7 @@ public interface AppLangPackage extends EPackage
    * @see de.cau.cs.se.lad.appLang.impl.AppLangPackageImpl#getInstance()
    * @generated
    */
-  int INSTANCE = 12;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INSTANCE__NAME = 0;
-
-  /**
-   * The number of structural features of the '<em>Instance</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INSTANCE_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link de.cau.cs.se.lad.appLang.impl.ArrayInstanceImpl <em>Array Instance</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see de.cau.cs.se.lad.appLang.impl.ArrayInstanceImpl
-   * @see de.cau.cs.se.lad.appLang.impl.AppLangPackageImpl#getArrayInstance()
-   * @generated
-   */
-  int ARRAY_INSTANCE = 13;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ARRAY_INSTANCE__NAME = INSTANCE__NAME;
+  int INSTANCE = 10;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' containment reference.
@@ -636,26 +498,7 @@ public interface AppLangPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ARRAY_INSTANCE__TYPE = INSTANCE_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Array Instance</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ARRAY_INSTANCE_FEATURE_COUNT = INSTANCE_FEATURE_COUNT + 1;
-
-  /**
-   * The meta object id for the '{@link de.cau.cs.se.lad.appLang.impl.SimpleInstanceImpl <em>Simple Instance</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see de.cau.cs.se.lad.appLang.impl.SimpleInstanceImpl
-   * @see de.cau.cs.se.lad.appLang.impl.AppLangPackageImpl#getSimpleInstance()
-   * @generated
-   */
-  int SIMPLE_INSTANCE = 14;
+  int INSTANCE__TYPE = 0;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -664,25 +507,16 @@ public interface AppLangPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SIMPLE_INSTANCE__NAME = INSTANCE__NAME;
+  int INSTANCE__NAME = 1;
 
   /**
-   * The feature id for the '<em><b>Type</b></em>' reference.
+   * The number of structural features of the '<em>Instance</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SIMPLE_INSTANCE__TYPE = INSTANCE_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Simple Instance</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SIMPLE_INSTANCE_FEATURE_COUNT = INSTANCE_FEATURE_COUNT + 1;
+  int INSTANCE_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link de.cau.cs.se.lad.appLang.impl.ViewImpl <em>View</em>}' class.
@@ -692,7 +526,7 @@ public interface AppLangPackage extends EPackage
    * @see de.cau.cs.se.lad.appLang.impl.AppLangPackageImpl#getView()
    * @generated
    */
-  int VIEW = 15;
+  int VIEW = 11;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -738,7 +572,7 @@ public interface AppLangPackage extends EPackage
    * @see de.cau.cs.se.lad.appLang.impl.AppLangPackageImpl#getViewContent()
    * @generated
    */
-  int VIEW_CONTENT = 16;
+  int VIEW_CONTENT = 12;
 
   /**
    * The number of structural features of the '<em>View Content</em>' class.
@@ -757,7 +591,7 @@ public interface AppLangPackage extends EPackage
    * @see de.cau.cs.se.lad.appLang.impl.AppLangPackageImpl#getViewContainer()
    * @generated
    */
-  int VIEW_CONTAINER = 17;
+  int VIEW_CONTAINER = 13;
 
   /**
    * The feature id for the '<em><b>Layout</b></em>' containment reference.
@@ -794,7 +628,7 @@ public interface AppLangPackage extends EPackage
    * @see de.cau.cs.se.lad.appLang.impl.AppLangPackageImpl#getViewElement()
    * @generated
    */
-  int VIEW_ELEMENT = 18;
+  int VIEW_ELEMENT = 14;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -831,7 +665,7 @@ public interface AppLangPackage extends EPackage
    * @see de.cau.cs.se.lad.appLang.impl.AppLangPackageImpl#getLayout()
    * @generated
    */
-  int LAYOUT = 19;
+  int LAYOUT = 15;
 
   /**
    * The feature id for the '<em><b>Size</b></em>' containment reference.
@@ -859,7 +693,7 @@ public interface AppLangPackage extends EPackage
    * @see de.cau.cs.se.lad.appLang.impl.AppLangPackageImpl#getGridLayout()
    * @generated
    */
-  int GRID_LAYOUT = 20;
+  int GRID_LAYOUT = 16;
 
   /**
    * The feature id for the '<em><b>Size</b></em>' containment reference.
@@ -896,7 +730,7 @@ public interface AppLangPackage extends EPackage
    * @see de.cau.cs.se.lad.appLang.impl.AppLangPackageImpl#getField()
    * @generated
    */
-  int FIELD = 21;
+  int FIELD = 17;
 
   /**
    * The feature id for the '<em><b>Width</b></em>' attribute.
@@ -933,7 +767,7 @@ public interface AppLangPackage extends EPackage
    * @see de.cau.cs.se.lad.appLang.impl.AppLangPackageImpl#getStackLayout()
    * @generated
    */
-  int STACK_LAYOUT = 22;
+  int STACK_LAYOUT = 18;
 
   /**
    * The feature id for the '<em><b>Size</b></em>' containment reference.
@@ -970,7 +804,7 @@ public interface AppLangPackage extends EPackage
    * @see de.cau.cs.se.lad.appLang.impl.AppLangPackageImpl#getSize()
    * @generated
    */
-  int SIZE = 23;
+  int SIZE = 19;
 
   /**
    * The feature id for the '<em><b>Width</b></em>' containment reference.
@@ -1007,7 +841,7 @@ public interface AppLangPackage extends EPackage
    * @see de.cau.cs.se.lad.appLang.impl.AppLangPackageImpl#getSizeExpr()
    * @generated
    */
-  int SIZE_EXPR = 24;
+  int SIZE_EXPR = 20;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1044,7 +878,7 @@ public interface AppLangPackage extends EPackage
    * @see de.cau.cs.se.lad.appLang.impl.AppLangPackageImpl#getFunctionEnum()
    * @generated
    */
-  int FUNCTION_ENUM = 25;
+  int FUNCTION_ENUM = 21;
 
   /**
    * The meta object id for the '{@link de.cau.cs.se.lad.appLang.ViewType <em>View Type</em>}' enum.
@@ -1054,7 +888,7 @@ public interface AppLangPackage extends EPackage
    * @see de.cau.cs.se.lad.appLang.impl.AppLangPackageImpl#getViewType()
    * @generated
    */
-  int VIEW_TYPE = 26;
+  int VIEW_TYPE = 22;
 
   /**
    * The meta object id for the '{@link de.cau.cs.se.lad.appLang.Unit <em>Unit</em>}' enum.
@@ -1064,7 +898,7 @@ public interface AppLangPackage extends EPackage
    * @see de.cau.cs.se.lad.appLang.impl.AppLangPackageImpl#getUnit()
    * @generated
    */
-  int UNIT = 27;
+  int UNIT = 23;
 
   /**
    * The meta object id for the '{@link de.cau.cs.se.lad.appLang.Direction <em>Direction</em>}' enum.
@@ -1074,7 +908,7 @@ public interface AppLangPackage extends EPackage
    * @see de.cau.cs.se.lad.appLang.impl.AppLangPackageImpl#getDirection()
    * @generated
    */
-  int DIRECTION = 28;
+  int DIRECTION = 24;
 
 
   /**
@@ -1130,103 +964,6 @@ public interface AppLangPackage extends EPackage
    * @generated
    */
   EReference getModel_Model();
-
-  /**
-   * Returns the meta object for class '{@link de.cau.cs.se.lad.appLang.Service <em>Service</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Service</em>'.
-   * @see de.cau.cs.se.lad.appLang.Service
-   * @generated
-   */
-  EClass getService();
-
-  /**
-   * Returns the meta object for the attribute '{@link de.cau.cs.se.lad.appLang.Service#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see de.cau.cs.se.lad.appLang.Service#getName()
-   * @see #getService()
-   * @generated
-   */
-  EAttribute getService_Name();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link de.cau.cs.se.lad.appLang.Service#getConfigurations <em>Configurations</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Configurations</em>'.
-   * @see de.cau.cs.se.lad.appLang.Service#getConfigurations()
-   * @see #getService()
-   * @generated
-   */
-  EReference getService_Configurations();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link de.cau.cs.se.lad.appLang.Service#getOperations <em>Operations</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Operations</em>'.
-   * @see de.cau.cs.se.lad.appLang.Service#getOperations()
-   * @see #getService()
-   * @generated
-   */
-  EReference getService_Operations();
-
-  /**
-   * Returns the meta object for class '{@link de.cau.cs.se.lad.appLang.Operation <em>Operation</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Operation</em>'.
-   * @see de.cau.cs.se.lad.appLang.Operation
-   * @generated
-   */
-  EClass getOperation();
-
-  /**
-   * Returns the meta object for the reference '{@link de.cau.cs.se.lad.appLang.Operation#getType <em>Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Type</em>'.
-   * @see de.cau.cs.se.lad.appLang.Operation#getType()
-   * @see #getOperation()
-   * @generated
-   */
-  EReference getOperation_Type();
-
-  /**
-   * Returns the meta object for the attribute '{@link de.cau.cs.se.lad.appLang.Operation#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see de.cau.cs.se.lad.appLang.Operation#getName()
-   * @see #getOperation()
-   * @generated
-   */
-  EAttribute getOperation_Name();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link de.cau.cs.se.lad.appLang.Operation#getParameters <em>Parameters</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Parameters</em>'.
-   * @see de.cau.cs.se.lad.appLang.Operation#getParameters()
-   * @see #getOperation()
-   * @generated
-   */
-  EReference getOperation_Parameters();
-
-  /**
-   * Returns the meta object for the containment reference '{@link de.cau.cs.se.lad.appLang.Operation#getExpression <em>Expression</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Expression</em>'.
-   * @see de.cau.cs.se.lad.appLang.Operation#getExpression()
-   * @see #getOperation()
-   * @generated
-   */
-  EReference getOperation_Expression();
 
   /**
    * Returns the meta object for class '{@link de.cau.cs.se.lad.appLang.Expression <em>Expression</em>}'.
@@ -1353,15 +1090,15 @@ public interface AppLangPackage extends EPackage
   EClass getFunction();
 
   /**
-   * Returns the meta object for the attribute '{@link de.cau.cs.se.lad.appLang.Function#getType <em>Type</em>}'.
+   * Returns the meta object for the attribute '{@link de.cau.cs.se.lad.appLang.Function#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Type</em>'.
-   * @see de.cau.cs.se.lad.appLang.Function#getType()
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see de.cau.cs.se.lad.appLang.Function#getName()
    * @see #getFunction()
    * @generated
    */
-  EAttribute getFunction_Type();
+  EAttribute getFunction_Name();
 
   /**
    * Returns the meta object for the containment reference list '{@link de.cau.cs.se.lad.appLang.Function#getExpressions <em>Expressions</em>}'.
@@ -1417,6 +1154,17 @@ public interface AppLangPackage extends EPackage
   EClass getInstance();
 
   /**
+   * Returns the meta object for the containment reference '{@link de.cau.cs.se.lad.appLang.Instance#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type</em>'.
+   * @see de.cau.cs.se.lad.appLang.Instance#getType()
+   * @see #getInstance()
+   * @generated
+   */
+  EReference getInstance_Type();
+
+  /**
    * Returns the meta object for the attribute '{@link de.cau.cs.se.lad.appLang.Instance#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1426,48 +1174,6 @@ public interface AppLangPackage extends EPackage
    * @generated
    */
   EAttribute getInstance_Name();
-
-  /**
-   * Returns the meta object for class '{@link de.cau.cs.se.lad.appLang.ArrayInstance <em>Array Instance</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Array Instance</em>'.
-   * @see de.cau.cs.se.lad.appLang.ArrayInstance
-   * @generated
-   */
-  EClass getArrayInstance();
-
-  /**
-   * Returns the meta object for the containment reference '{@link de.cau.cs.se.lad.appLang.ArrayInstance#getType <em>Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Type</em>'.
-   * @see de.cau.cs.se.lad.appLang.ArrayInstance#getType()
-   * @see #getArrayInstance()
-   * @generated
-   */
-  EReference getArrayInstance_Type();
-
-  /**
-   * Returns the meta object for class '{@link de.cau.cs.se.lad.appLang.SimpleInstance <em>Simple Instance</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Simple Instance</em>'.
-   * @see de.cau.cs.se.lad.appLang.SimpleInstance
-   * @generated
-   */
-  EClass getSimpleInstance();
-
-  /**
-   * Returns the meta object for the reference '{@link de.cau.cs.se.lad.appLang.SimpleInstance#getType <em>Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Type</em>'.
-   * @see de.cau.cs.se.lad.appLang.SimpleInstance#getType()
-   * @see #getSimpleInstance()
-   * @generated
-   */
-  EReference getSimpleInstance_Type();
 
   /**
    * Returns the meta object for class '{@link de.cau.cs.se.lad.appLang.View <em>View</em>}'.
@@ -1851,82 +1557,6 @@ public interface AppLangPackage extends EPackage
     EReference MODEL__MODEL = eINSTANCE.getModel_Model();
 
     /**
-     * The meta object literal for the '{@link de.cau.cs.se.lad.appLang.impl.ServiceImpl <em>Service</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see de.cau.cs.se.lad.appLang.impl.ServiceImpl
-     * @see de.cau.cs.se.lad.appLang.impl.AppLangPackageImpl#getService()
-     * @generated
-     */
-    EClass SERVICE = eINSTANCE.getService();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute SERVICE__NAME = eINSTANCE.getService_Name();
-
-    /**
-     * The meta object literal for the '<em><b>Configurations</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference SERVICE__CONFIGURATIONS = eINSTANCE.getService_Configurations();
-
-    /**
-     * The meta object literal for the '<em><b>Operations</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference SERVICE__OPERATIONS = eINSTANCE.getService_Operations();
-
-    /**
-     * The meta object literal for the '{@link de.cau.cs.se.lad.appLang.impl.OperationImpl <em>Operation</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see de.cau.cs.se.lad.appLang.impl.OperationImpl
-     * @see de.cau.cs.se.lad.appLang.impl.AppLangPackageImpl#getOperation()
-     * @generated
-     */
-    EClass OPERATION = eINSTANCE.getOperation();
-
-    /**
-     * The meta object literal for the '<em><b>Type</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference OPERATION__TYPE = eINSTANCE.getOperation_Type();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute OPERATION__NAME = eINSTANCE.getOperation_Name();
-
-    /**
-     * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference OPERATION__PARAMETERS = eINSTANCE.getOperation_Parameters();
-
-    /**
-     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference OPERATION__EXPRESSION = eINSTANCE.getOperation_Expression();
-
-    /**
      * The meta object literal for the '{@link de.cau.cs.se.lad.appLang.impl.ExpressionImpl <em>Expression</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2039,12 +1669,12 @@ public interface AppLangPackage extends EPackage
     EClass FUNCTION = eINSTANCE.getFunction();
 
     /**
-     * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute FUNCTION__TYPE = eINSTANCE.getFunction_Type();
+    EAttribute FUNCTION__NAME = eINSTANCE.getFunction_Name();
 
     /**
      * The meta object literal for the '<em><b>Expressions</b></em>' containment reference list feature.
@@ -2091,48 +1721,20 @@ public interface AppLangPackage extends EPackage
     EClass INSTANCE = eINSTANCE.getInstance();
 
     /**
+     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference INSTANCE__TYPE = eINSTANCE.getInstance_Type();
+
+    /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EAttribute INSTANCE__NAME = eINSTANCE.getInstance_Name();
-
-    /**
-     * The meta object literal for the '{@link de.cau.cs.se.lad.appLang.impl.ArrayInstanceImpl <em>Array Instance</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see de.cau.cs.se.lad.appLang.impl.ArrayInstanceImpl
-     * @see de.cau.cs.se.lad.appLang.impl.AppLangPackageImpl#getArrayInstance()
-     * @generated
-     */
-    EClass ARRAY_INSTANCE = eINSTANCE.getArrayInstance();
-
-    /**
-     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference ARRAY_INSTANCE__TYPE = eINSTANCE.getArrayInstance_Type();
-
-    /**
-     * The meta object literal for the '{@link de.cau.cs.se.lad.appLang.impl.SimpleInstanceImpl <em>Simple Instance</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see de.cau.cs.se.lad.appLang.impl.SimpleInstanceImpl
-     * @see de.cau.cs.se.lad.appLang.impl.AppLangPackageImpl#getSimpleInstance()
-     * @generated
-     */
-    EClass SIMPLE_INSTANCE = eINSTANCE.getSimpleInstance();
-
-    /**
-     * The meta object literal for the '<em><b>Type</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference SIMPLE_INSTANCE__TYPE = eINSTANCE.getSimpleInstance_Type();
 
     /**
      * The meta object literal for the '{@link de.cau.cs.se.lad.appLang.impl.ViewImpl <em>View</em>}' class.

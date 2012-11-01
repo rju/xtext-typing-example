@@ -4,9 +4,12 @@ package de.cau.cs.se.lad.types.impl;
 
 import de.cau.cs.se.lad.types.ArrayType;
 import de.cau.cs.se.lad.types.ClassType;
+import de.cau.cs.se.lad.types.Operation;
 import de.cau.cs.se.lad.types.PrimitiveType;
 import de.cau.cs.se.lad.types.Property;
+import de.cau.cs.se.lad.types.ServiceType;
 import de.cau.cs.se.lad.types.Type;
+import de.cau.cs.se.lad.types.TypeReference;
 import de.cau.cs.se.lad.types.TypesFactory;
 import de.cau.cs.se.lad.types.TypesPackage;
 import de.cau.cs.se.lad.types.UserType;
@@ -66,6 +69,27 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 * @generated
 	 */
 	private EClass arrayTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass typeReferenceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass serviceTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass operationEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -232,8 +256,8 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getArrayType_Type() {
-		return (EReference)arrayTypeEClass.getEStructuralFeatures().get(0);
+	public EAttribute getArrayType_Size() {
+		return (EAttribute)arrayTypeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -241,8 +265,98 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getArrayType_Size() {
-		return (EAttribute)arrayTypeEClass.getEStructuralFeatures().get(1);
+	public EClass getTypeReference() {
+		return typeReferenceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTypeReference_Type() {
+		return (EReference)typeReferenceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTypeReference_Remainder() {
+		return (EReference)typeReferenceEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getServiceType() {
+		return serviceTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getServiceType_Configurations() {
+		return (EReference)serviceTypeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getServiceType_Operations() {
+		return (EReference)serviceTypeEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getOperation() {
+		return operationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getOperation_Type() {
+		return (EReference)operationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOperation_Name() {
+		return (EAttribute)operationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getOperation_Parameters() {
+		return (EReference)operationEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getOperation_Expression() {
+		return (EReference)operationEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -289,8 +403,21 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 		createEAttribute(propertyEClass, PROPERTY__NAME);
 
 		arrayTypeEClass = createEClass(ARRAY_TYPE);
-		createEReference(arrayTypeEClass, ARRAY_TYPE__TYPE);
 		createEAttribute(arrayTypeEClass, ARRAY_TYPE__SIZE);
+
+		typeReferenceEClass = createEClass(TYPE_REFERENCE);
+		createEReference(typeReferenceEClass, TYPE_REFERENCE__TYPE);
+		createEReference(typeReferenceEClass, TYPE_REFERENCE__REMAINDER);
+
+		serviceTypeEClass = createEClass(SERVICE_TYPE);
+		createEReference(serviceTypeEClass, SERVICE_TYPE__CONFIGURATIONS);
+		createEReference(serviceTypeEClass, SERVICE_TYPE__OPERATIONS);
+
+		operationEClass = createEClass(OPERATION);
+		createEReference(operationEClass, OPERATION__TYPE);
+		createEAttribute(operationEClass, OPERATION__NAME);
+		createEReference(operationEClass, OPERATION__PARAMETERS);
+		createEReference(operationEClass, OPERATION__EXPRESSION);
 	}
 
 	/**
@@ -324,7 +451,8 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 		primitiveTypeEClass.getESuperTypes().add(this.getType());
 		userTypeEClass.getESuperTypes().add(this.getType());
 		classTypeEClass.getESuperTypes().add(this.getUserType());
-		arrayTypeEClass.getESuperTypes().add(this.getUserType());
+		arrayTypeEClass.getESuperTypes().add(this.getTypeReference());
+		serviceTypeEClass.getESuperTypes().add(this.getUserType());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(typeEClass, Type.class, "Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -336,15 +464,28 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 
 		initEClass(classTypeEClass, ClassType.class, "ClassType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getClassType_Parent(), this.getClassType(), null, "parent", null, 0, 1, ClassType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getClassType_Properties(), this.getProperty(), null, "properties", null, 0, -1, ClassType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getClassType_Properties(), this.getProperty(), null, "properties", null, 0, -1, ClassType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(propertyEClass, Property.class, "Property", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getProperty_Type(), this.getType(), null, "type", null, 1, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProperty_Type(), this.getTypeReference(), null, "type", null, 1, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProperty_Name(), ecorePackage.getEString(), "name", null, 1, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(arrayTypeEClass, ArrayType.class, "ArrayType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getArrayType_Type(), this.getType(), null, "type", null, 1, 1, ArrayType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getArrayType_Size(), ecorePackage.getEInt(), "size", null, 0, 1, ArrayType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(typeReferenceEClass, TypeReference.class, "TypeReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTypeReference_Type(), this.getType(), null, "type", null, 0, 1, TypeReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTypeReference_Remainder(), this.getTypeReference(), null, "remainder", null, 0, 1, TypeReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(serviceTypeEClass, ServiceType.class, "ServiceType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getServiceType_Configurations(), this.getProperty(), null, "configurations", null, 0, -1, ServiceType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getServiceType_Operations(), this.getOperation(), null, "operations", null, 0, -1, ServiceType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(operationEClass, Operation.class, "Operation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getOperation_Type(), this.getTypeReference(), null, "type", null, 1, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOperation_Name(), ecorePackage.getEString(), "name", null, 1, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOperation_Parameters(), this.getProperty(), null, "parameters", null, 0, -1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOperation_Expression(), ecorePackage.getEObject(), null, "expression", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

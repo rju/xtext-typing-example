@@ -5,13 +5,12 @@ import org.eclipse.xtext.common.types.access.jdt.TypeURIHelper;
 
 import de.cau.cs.se.lad.types.Type;
 
-/**
- * This interface is a derivative of {@link org.eclipse.xtext.common.types.access.IJvmTypeProvider
- * IJvmTypeProvider}.
+ /**
+ * The type provider interface.
  * 
- * @author rju, chsch
+ * @author chsch - Initial contribution (derived from org.eclipse.xtext.common.types.access.IJvmTypeProvider)
+ * @author rju - Cleanups and commentary
  */
-@SuppressWarnings("restriction")
 public interface ITypeProvider {
     
     
@@ -55,7 +54,7 @@ public interface ITypeProvider {
      * 
      * @return the used {@link TypeURIHelper}
      */
-    TypeURIHelper getTypeUriHelper();
+    LadTypeURIHelper getTypeUriHelper();
 
 
 

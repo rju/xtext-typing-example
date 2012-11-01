@@ -5,10 +5,10 @@ package de.cau.cs.se.lad.appLang.impl;
 import de.cau.cs.se.lad.appLang.AppLangPackage;
 import de.cau.cs.se.lad.appLang.DataModel;
 import de.cau.cs.se.lad.appLang.Model;
-import de.cau.cs.se.lad.appLang.Service;
 import de.cau.cs.se.lad.appLang.View;
 
 import de.cau.cs.se.lad.types.ClassType;
+import de.cau.cs.se.lad.types.ServiceType;
 
 import java.util.Collection;
 
@@ -52,7 +52,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * @generated
    * @ordered
    */
-  protected EList<Service> services;
+  protected EList<ServiceType> services;
 
   /**
    * The cached value of the '{@link #getViews() <em>Views</em>}' containment reference list.
@@ -110,11 +110,11 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Service> getServices()
+  public EList<ServiceType> getServices()
   {
     if (services == null)
     {
-      services = new EObjectContainmentEList<Service>(Service.class, this, AppLangPackage.MODEL__SERVICES);
+      services = new EObjectContainmentEList<ServiceType>(ServiceType.class, this, AppLangPackage.MODEL__SERVICES);
     }
     return services;
   }
@@ -252,7 +252,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
     {
       case AppLangPackage.MODEL__SERVICES:
         getServices().clear();
-        getServices().addAll((Collection<? extends Service>)newValue);
+        getServices().addAll((Collection<? extends ServiceType>)newValue);
         return;
       case AppLangPackage.MODEL__VIEWS:
         getViews().clear();

@@ -3,7 +3,6 @@
  */
 package de.cau.cs.se.lad;
 
-import de.cau.cs.se.lad.AbstractAppLangRuntimeModule;
 import de.cau.cs.se.lad.typing.TypeGlobalScopeProvider;
 
 /**

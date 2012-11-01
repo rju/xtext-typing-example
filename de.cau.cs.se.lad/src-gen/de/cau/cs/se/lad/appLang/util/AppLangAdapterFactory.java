@@ -80,16 +80,6 @@ public class AppLangAdapterFactory extends AdapterFactoryImpl
         return createModelAdapter();
       }
       @Override
-      public Adapter caseService(Service object)
-      {
-        return createServiceAdapter();
-      }
-      @Override
-      public Adapter caseOperation(Operation object)
-      {
-        return createOperationAdapter();
-      }
-      @Override
       public Adapter caseExpression(Expression object)
       {
         return createExpressionAdapter();
@@ -138,16 +128,6 @@ public class AppLangAdapterFactory extends AdapterFactoryImpl
       public Adapter caseInstance(Instance object)
       {
         return createInstanceAdapter();
-      }
-      @Override
-      public Adapter caseArrayInstance(ArrayInstance object)
-      {
-        return createArrayInstanceAdapter();
-      }
-      @Override
-      public Adapter caseSimpleInstance(SimpleInstance object)
-      {
-        return createSimpleInstanceAdapter();
       }
       @Override
       public Adapter caseView(View object)
@@ -232,36 +212,6 @@ public class AppLangAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createModelAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link de.cau.cs.se.lad.appLang.Service <em>Service</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see de.cau.cs.se.lad.appLang.Service
-   * @generated
-   */
-  public Adapter createServiceAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link de.cau.cs.se.lad.appLang.Operation <em>Operation</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see de.cau.cs.se.lad.appLang.Operation
-   * @generated
-   */
-  public Adapter createOperationAdapter()
   {
     return null;
   }
@@ -412,36 +362,6 @@ public class AppLangAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createInstanceAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link de.cau.cs.se.lad.appLang.ArrayInstance <em>Array Instance</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see de.cau.cs.se.lad.appLang.ArrayInstance
-   * @generated
-   */
-  public Adapter createArrayInstanceAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link de.cau.cs.se.lad.appLang.SimpleInstance <em>Simple Instance</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see de.cau.cs.se.lad.appLang.SimpleInstance
-   * @generated
-   */
-  public Adapter createSimpleInstanceAdapter()
   {
     return null;
   }

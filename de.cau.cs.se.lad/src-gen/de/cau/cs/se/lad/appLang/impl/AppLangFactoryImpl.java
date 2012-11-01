@@ -66,8 +66,6 @@ public class AppLangFactoryImpl extends EFactoryImpl implements AppLangFactory
     switch (eClass.getClassifierID())
     {
       case AppLangPackage.MODEL: return createModel();
-      case AppLangPackage.SERVICE: return createService();
-      case AppLangPackage.OPERATION: return createOperation();
       case AppLangPackage.EXPRESSION: return createExpression();
       case AppLangPackage.BASE_EXPRESSION: return createBaseExpression();
       case AppLangPackage.STRING_EXPRESSION: return createStringExpression();
@@ -78,8 +76,6 @@ public class AppLangFactoryImpl extends EFactoryImpl implements AppLangFactory
       case AppLangPackage.FUNCTION: return createFunction();
       case AppLangPackage.DATA_MODEL: return createDataModel();
       case AppLangPackage.INSTANCE: return createInstance();
-      case AppLangPackage.ARRAY_INSTANCE: return createArrayInstance();
-      case AppLangPackage.SIMPLE_INSTANCE: return createSimpleInstance();
       case AppLangPackage.VIEW: return createView();
       case AppLangPackage.VIEW_CONTENT: return createViewContent();
       case AppLangPackage.VIEW_CONTAINER: return createViewContainer();
@@ -150,28 +146,6 @@ public class AppLangFactoryImpl extends EFactoryImpl implements AppLangFactory
   {
     ModelImpl model = new ModelImpl();
     return model;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Service createService()
-  {
-    ServiceImpl service = new ServiceImpl();
-    return service;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Operation createOperation()
-  {
-    OperationImpl operation = new OperationImpl();
-    return operation;
   }
 
   /**
@@ -282,28 +256,6 @@ public class AppLangFactoryImpl extends EFactoryImpl implements AppLangFactory
   {
     InstanceImpl instance = new InstanceImpl();
     return instance;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ArrayInstance createArrayInstance()
-  {
-    ArrayInstanceImpl arrayInstance = new ArrayInstanceImpl();
-    return arrayInstance;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public SimpleInstance createSimpleInstance()
-  {
-    SimpleInstanceImpl simpleInstance = new SimpleInstanceImpl();
-    return simpleInstance;
   }
 
   /**
