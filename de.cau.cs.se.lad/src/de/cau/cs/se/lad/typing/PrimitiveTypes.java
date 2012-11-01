@@ -31,19 +31,4 @@ public enum PrimitiveTypes {
 	public String lowerCaseName() {
 		return this.name().toLowerCase();
 	}
-
-	/**
-	 * Checks if the given name is the lower case name of one of the enumeration values.
-	 * 
-	 * @param name
-	 *            The name of a type
-	 * @return True if the given name represents a primitive type, else false.
-	 */
-	public static boolean isPrimitive(final String name) {
-		for (PrimitiveTypes type : PrimitiveTypes.values()) {
-			if (type.lowerCaseName().equals(name))
-				return true;
-		}
-		return false;
-	}
 }

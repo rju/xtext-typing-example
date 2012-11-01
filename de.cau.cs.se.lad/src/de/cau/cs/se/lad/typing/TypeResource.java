@@ -15,6 +15,8 @@ import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
 import org.eclipse.xtext.resource.IFragmentProvider;
 
 /**
+ * Simulates a real resource for primitive types.
+ * 
  * @author Sebastian Zarnekow - Initial contribution and API
  * @author Reiner Jung - Adaptation for a general typ approach
  */

@@ -119,12 +119,12 @@ public class SimpleTypeScope extends AbstractScope {
     protected IEObjectDescription createScopedElement(String fullyQualifiedName) {
         InternalEObject proxy = createProxy(fullyQualifiedName);
         IEObjectDescription eObjectDescription = EObjectDescription.create(
-                getQualifiedNameConverter().toQualifiedName(fullyQualifiedName), proxy);
+        		qualifiedNameConverter.toQualifiedName(fullyQualifiedName), proxy);
         return eObjectDescription;
     }
 
     protected InternalEObject createProxy(String fullyQualifiedName) {
-        URI uri = getTypeProvider().getTypeUriHelper().getFullURIForClass(fullyQualifiedName);
+        URI uri = typeProvider.getTypeUriHelper().getFullURIForClass(fullyQualifiedName);
         InternalEObject proxy = (InternalEObject) TypesFactory.eINSTANCE.createPrimitiveType();
         proxy.eSetProxyURI(uri);
         return proxy;
@@ -133,14 +133,6 @@ public class SimpleTypeScope extends AbstractScope {
     @Override
     protected Iterable<IEObjectDescription> getAllLocalElements() {
         throw new UnsupportedOperationException();
-    }
-
-    public ITypeProvider getTypeProvider() {
-            return typeProvider;
-    }
-
-    public IQualifiedNameConverter getQualifiedNameConverter() {
-            return qualifiedNameConverter;
     }
 
     @Override

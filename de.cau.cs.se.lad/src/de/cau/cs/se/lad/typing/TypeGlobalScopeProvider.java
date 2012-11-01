@@ -16,7 +16,9 @@ package de.cau.cs.se.lad.typing;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.xtext.EcoreUtil2;
+import org.eclipse.xtext.naming.IQualifiedNameConverter;
 import org.eclipse.xtext.resource.IEObjectDescription;
 import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.scoping.impl.DefaultGlobalScopeProvider;
@@ -27,15 +29,17 @@ import com.google.inject.Inject;
 import de.cau.cs.se.lad.types.TypesPackage;
 
 /**
- * This class is a derivative of {@link org.eclipse.xtext.xbase.jvmmodel.JvmGlobalScopeProvider
- * JvmGlobalScopeProvider}.
+ * Scope provider for the primitive types.
  * 
- * @author chsch
+ * @author Reiner Jung
+ *
  */
-@SuppressWarnings("restriction")
 public class TypeGlobalScopeProvider extends DefaultGlobalScopeProvider { 
-    @Inject
-    private PrimitiveTypeScopeProvider typeScopeProvider;
+	@Inject
+	private TypeProviderFactory typeProviderFactory;
+
+	@Inject
+	private IQualifiedNameConverter qualifiedNameConverter;
     
     @Override
     public IScope getScope(Resource resource, EReference reference, Predicate<IEObjectDescription> filter) {
@@ -45,11 +49,16 @@ public class TypeGlobalScopeProvider extends DefaultGlobalScopeProvider {
 
     protected IScope getParentTypeScope(Resource resource, EReference reference,
             Predicate<IEObjectDescription> filter, EClass referenceType) {
-        IScope parentTypeScope = IScope.NULLSCOPE;
         if (EcoreUtil2.isAssignableFrom(TypesPackage.Literals.TYPE, referenceType)) {
-            parentTypeScope = typeScopeProvider.getScope(resource, reference, filter);
-        }
-        return parentTypeScope;
+        	if (resource == null)
+    			throw new IllegalStateException("context must be contained in a resource");
+    		ResourceSet resourceSet = resource.getResourceSet();
+    		if (resourceSet == null)
+    			throw new IllegalStateException("context must be contained in a resource set");
+        	ITypeProvider typeProvider = typeProviderFactory.getTypeProvider(resourceSet);
+			return new SimpleTypeScope(typeProvider, qualifiedNameConverter, filter);
+        } else
+        	return IScope.NULLSCOPE;
     }
     
 }

@@ -42,49 +42,33 @@ public class TypeProviderFactory {
 		if (resourceSet == null) {
 			throw new IllegalArgumentException("resourceSet may not be null.");
 		} else {
-			ITypeProvider result = findTypeProvider(resourceSet);
-			if (result != null)
-				return result;
-			else
+			Object o = resourceSet.getResourceFactoryRegistry().getProtocolToFactoryMap()
+			        .get(LadURIHelperConstants.PROTOCOL);
+			if (o != null) {
+				if (!(o instanceof ITypeProvider)) {
+					// something went terribly wrong, to be save create a new type provider
+					return createTypeProvider(resourceSet);
+				} else {
+					return (ITypeProvider) o;
+				}
+			} else
 				return createTypeProvider(resourceSet);
 		}
 	}
 
 	/**
-	 * Create a new type provider for primitive types.
+	 * Create a new type provider for primitive types and register it with the resource.
 	 * 
 	 * @param resourceSet
 	 *            The resource set associated with the type provider.
 	 * @return Returns the new type provider.
 	 */
 	private ITypeProvider createTypeProvider(ResourceSet resourceSet) {
-		if (resourceSet == null) {
-			throw new IllegalArgumentException("resourceSet may not be null.");
-		} else {
 			ITypeProvider typeProvider = new TypeProvider(resourceSet);
 			resourceSet.getResourceFactoryRegistry().getProtocolToFactoryMap()
 			        .put(LadURIHelperConstants.PROTOCOL, typeProvider);
 			return typeProvider;
-		}
-	}
 
-	/**
-	 * Find the existing type provider for a given resource set.
-	 * 
-	 * @param resourceSet
-	 * @return
-	 */
-	private ITypeProvider findTypeProvider(ResourceSet resourceSet) {
-		if (resourceSet == null)
-			throw new IllegalArgumentException("resourceSet may not be null.");
-		Object o = resourceSet.getResourceFactoryRegistry().getProtocolToFactoryMap()
-		        .get(LadURIHelperConstants.PROTOCOL);
-		if (o != null && !(o instanceof ITypeProvider)) {
-			// something went terribly wrong, to be save create a new type provider
-			return new TypeProvider(resourceSet);
-		} else {
-			return (ITypeProvider) o;
-		}
 	}
 
 }

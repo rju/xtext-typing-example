@@ -23,7 +23,6 @@ package de.cau.cs.se.lad.typing;
 public interface LadURIHelperConstants {
 
         String PRIMITIVES = "/Primitives"; //$NON-NLS-1$
-        String OBJECTS = "/Objects/"; //$NON-NLS-1$
         String PROTOCOL = "lad"; //$NON-NLS-1$
         
 }
