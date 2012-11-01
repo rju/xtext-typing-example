@@ -17,8 +17,10 @@ import de.cau.cs.se.lad.types.TypesFactory;
 import de.cau.cs.se.lad.types.Type;
 
 /**
- * @author chsch -- initial contribution
- * @author rju -- cleanups
+ * Implementation of a type factory for primitive types based on strings.
+ * 
+ * @author Christian Schneider - initial contribution
+ * @author Reiner jung - cleanups and documentation
  */
 public class PrimitiveTypeFactory implements ITypeFactory<String>{
 

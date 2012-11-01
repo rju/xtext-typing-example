@@ -1,61 +1,52 @@
+/*
+ * Science Blog 
+ *
+ * http://www.se.informatik.uni-kiel.de
+ * 
+ * Copyright 2012 by
+ * + Christian-Albrechts-University of Kiel
+ *   + Department of Computer Science
+ *     + Software Engineering Group
+ * 
+ * This code is provided under the terms of the Eclipse Public License (EPL).
+ * See the file epl-v10.html for the license text.
+ */
 package de.cau.cs.se.lad.typing;
 
-import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.xtext.common.types.access.jdt.TypeURIHelper;
 
 import de.cau.cs.se.lad.types.Type;
 
- /**
- * The type provider interface.
+/**
+ * The type provider interface. It is used by the scoping and plays a role in the content assist.
+ * the interface provides a method to get all types
  * 
- * @author chsch - Initial contribution (derived from org.eclipse.xtext.common.types.access.IJvmTypeProvider)
- * @author rju - Cleanups and commentary
+ * @author Christian Schneider - Initial contribution (derived from
+ *         org.eclipse.xtext.common.types.access.IJvmTypeProvider)
+ * @author Reiner Jung - Cleanups and commentary
  */
 public interface ITypeProvider {
-    
-    
-    /**
-     * Provides a collection of all supported types (helpful for content assist).
-     * 
-     * @author chsch
-     */
-    Iterable<Type> getAllTypes();
-    
-    /**
-     * Find a type by its fully qualified name, e.g. java.util.Map$Entry, int[], void or
-     * java.lang.String[][][].
-     * 
-     * @return the found {@link Type} or null if no such type could be found.
-     */
-    Type findTypeByName(String name);
 
-    /**
-     * Returns the resource set that will contain dynamically created resources.
-     * 
-     * @return the resource set.
-     */
-    ResourceSet getResourceSet();
+	/**
+	 * Provides a collection of all supported primitive types (helpful for content assist).
+	 * 
+	 * @author chsch
+	 */
+	Iterable<Type> getAllTypes();
 
-    interface Factory {
+	/**
+	 * Find a type by its fully qualified name, which is for primitive types their normal name.
+	 * 
+	 * @return the found {@link Type} or null if no such type could be found.
+	 */
+	Type findTypeByName(String name);
 
-        ITypeProvider createTypeProvider(ResourceSet resourceSet);
-
-        ITypeProvider findTypeProvider(ResourceSet resourceSet);
-
-        ITypeProvider findOrCreateTypeProvider(ResourceSet resourceSet);
-
-        ITypeProvider createTypeProvider() throws UnsupportedOperationException;
-
-    }
-
-    /**
-     * Introduced analogously to {@link org.eclipse.xtext.common.types.access.jdt.IJdtTypeProvider
-     * IJdtTypeProvider#getTypeUriHelper()}.
-     * 
-     * @return the used {@link TypeURIHelper}
-     */
-    LadTypeURIHelper getTypeUriHelper();
-
-
+	/**
+	 * Introduced analogously to {@link org.eclipse.xtext.common.types.access.jdt.IJdtTypeProvider
+	 * IJdtTypeProvider#getTypeUriHelper()}.
+	 * 
+	 * @return the used {@link TypeURIHelper}
+	 */
+	LadTypeURIHelper getTypeUriHelper();
 
 }

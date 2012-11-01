@@ -1,3 +1,16 @@
+/*
+ * Science Blog 
+ *
+ * http://www.se.informatik.uni-kiel.de
+ * 
+ * Copyright 2012 by
+ * + Christian-Albrechts-University of Kiel
+ *   + Department of Computer Science
+ *     + Software Engineering Group
+ * 
+ * This code is provided under the terms of the Eclipse Public License (EPL).
+ * See the file epl-v10.html for the license text.
+ */
 package de.cau.cs.se.lad.typing;
 
 import org.eclipse.emf.common.util.URI;
@@ -11,9 +24,10 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import de.cau.cs.se.lad.types.Type;
 
 /**
+ * The type provider allows to retrieve a list of all primitive types and provides type name lookup.
  * 
- * @author chsch -- initial contribution
- * @author rju
+ * @author Christian Schneider - Initial contribution
+ * @author Reiner Jung - Cleanup and commentary
  * 
  */
 public class TypeProvider implements Resource.Factory, ITypeProvider {
@@ -29,25 +43,22 @@ public class TypeProvider implements Resource.Factory, ITypeProvider {
 	 */
 	public TypeProvider(ResourceSet resourceSet) {
 		this.resourceSet = resourceSet;
-		registerProtocol(resourceSet);
 		primitiveTypeFactory = new PrimitiveTypeFactory();
 		typeUriHelper = new LadTypeURIHelper();
 	}
 
-	protected void registerProtocol(ResourceSet resourceSet) {
-		resourceSet.getResourceFactoryRegistry().getProtocolToFactoryMap()
-		        .put(LadURIHelperConstants.PROTOCOL, this);
-	}
-
-	public ResourceSet getResourceSet() {
-		return resourceSet;
-	}
-
+	/**
+	 * Provides a list of all primitive types.
+	 * 
+	 * @return Returns an iterable with all primitive types.
+	 */
 	public Iterable<Type> getAllTypes() {
-		// Get the (already created) types from the helper resource and cast the list to a list of
-		// types.
+		/*
+		 * Get the (already created) types from the helper resource and cast the list to a list of
+		 * types.
+		 */
 		return IterableExtensions.map(
-		        getResourceSet().getResource(
+		        resourceSet.getResource(
 		                URI.createURI(LadURIHelperConstants.PROTOCOL + ":"
 		                        + LadURIHelperConstants.PRIMITIVES), true).getContents(),
 		        new Function1<EObject, Type>() {
@@ -60,29 +71,33 @@ public class TypeProvider implements Resource.Factory, ITypeProvider {
 	/**
 	 * Find the type for a given name and return it.
 	 * 
-	 * @param name The name of the type.
+	 * @param name
+	 *            The name of the type.
 	 * @return Returns the primitive type for a given type name, or null.
 	 */
 	public Type findTypeByName(String name) {
 		if (Strings.isEmpty(name))
 			throw new IllegalArgumentException("null");
 		URI resourceURI = typeUriHelper.createResourceURI();
-		TypeResource resource = (TypeResource) getResourceSet().getResource(resourceURI, true);
-		Type result = (Type) resource.getEObject(name); 
-		return result;
+		TypeResource resource = (TypeResource) resourceSet.getResource(resourceURI, true);
+		return (Type) resource.getEObject(name);
 	}
 
 	/**
 	 * Create a type resource for a given URI and assign a PrimitiveMirror to it.
 	 * 
-	 * @param uri The URI for the resource
+	 * @param uri
+	 *            The URI for the resource
 	 */
 	public TypeResource createResource(URI uri) {
-		TypeResource result = new TypeResource(uri);
-		final PrimitiveMirror mirror = createMirror(uri);
-		if (mirror != null)
-			result.setMirror(mirror);
-		return result;
+		return new TypeResource(uri, createPrimitiveMirror(uri));
+	}
+
+	/**
+	 * @returns Returns the URI helper for the type system.
+	 */
+	public LadTypeURIHelper getTypeUriHelper() {
+		return typeUriHelper;
 	}
 
 	/**
@@ -90,27 +105,20 @@ public class TypeProvider implements Resource.Factory, ITypeProvider {
 	 * after the # in the URI) and for URIs which are neither references to primitive or object
 	 * types.
 	 * 
-	 * @param resourceURI The URI the mirror is created for.
+	 * @param resourceURI
+	 *            The URI the mirror is created for.
 	 * @return Returns the mirror for primitive types and null for object-types.
 	 */
-	private PrimitiveMirror createMirror(URI resourceURI) {
+	private PrimitiveMirror createPrimitiveMirror(URI resourceURI) {
 		if (resourceURI.hasFragment())
 			throw new IllegalArgumentException("Cannot create mirror for uri '"
 			        + resourceURI.toString() + "'");
 		String name = resourceURI.path();
 		if (LadURIHelperConstants.PRIMITIVES.equals(name))
 			return new PrimitiveMirror(primitiveTypeFactory);
-		if (!name.startsWith(LadURIHelperConstants.OBJECTS))
+		else
 			throw new IllegalArgumentException("Invalid resource uri '" + resourceURI.toString()
 			        + "'");
-		return null;
-	}
-
-	/**
-	 * @returns Returns the URI helper for the type system. 
-	 */
-	public LadTypeURIHelper getTypeUriHelper() {
-		return typeUriHelper;
 	}
 
 }

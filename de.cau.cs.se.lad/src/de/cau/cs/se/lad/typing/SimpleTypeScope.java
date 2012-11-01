@@ -1,3 +1,16 @@
+/*
+ * Science Blog 
+ *
+ * http://www.se.informatik.uni-kiel.de
+ * 
+ * Copyright 2012 by
+ * + Christian-Albrechts-University of Kiel
+ *   + Department of Computer Science
+ *     + Software Engineering Group
+ * 
+ * This code is provided under the terms of the Eclipse Public License (EPL).
+ * See the file epl-v10.html for the license text.
+ */
 package de.cau.cs.se.lad.typing;
 
 import static java.util.Collections.emptySet;
@@ -28,7 +41,7 @@ import de.cau.cs.se.lad.types.TypesFactory;
  * This interface is a derivative of
  * {@link org.eclipse.xtext.common.types.xtext.ui.JdtBasedSimpleTypeScope JdtBasedSimpleTypeScope}.
  * 
- * @author chsch
+ * @author Christian Schneider
  */
 public class SimpleTypeScope extends AbstractScope {
 

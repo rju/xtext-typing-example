@@ -1,69 +1,90 @@
+/*
+ * Science Blog 
+ *
+ * http://www.se.informatik.uni-kiel.de
+ * 
+ * Copyright 2012 by
+ * + Christian-Albrechts-University of Kiel
+ *   + Department of Computer Science
+ *     + Software Engineering Group
+ * 
+ * This code is provided under the terms of the Eclipse Public License (EPL).
+ * See the file epl-v10.html for the license text.
+ */
 package de.cau.cs.se.lad.typing;
 
-import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.ui.statushandlers.StatusManager;
 
 import com.google.inject.Inject;
 
 /**
- * This class is a derivative of {@link org.eclipse.xtext.common.types.access.jdt.JdtTypeProviderFactory
- * JdtTypeProviderFactory}.
+ * The type provider factory controls the type provider, which is created by this class.
  * 
- * @author chsch
+ * @author Christian Schneider - derived this class from
+ *         org.eclipse.xtext.common.types.access.jdt.JdtTypeProviderFactory
+ * @author Reiner Jung - commentary and cleanups
  */
-public class TypeProviderFactory implements ITypeProvider.Factory {
-    
-    @Inject
-    public TypeProviderFactory() {
-    }
+public class TypeProviderFactory {
 
-    public ITypeProvider createTypeProvider(ResourceSet resourceSet) {
-        if (resourceSet == null) {
-            throw new IllegalArgumentException("resourceSet may not be null.");
-        } else {
-            return new TypeProvider(resourceSet);
-        }
-    }
+	@Inject
+	public TypeProviderFactory() {
+	}
 
-    /**
-     * {@inheritDoc}
-     */
-    public ITypeProvider findTypeProvider(ResourceSet resourceSet) {
-        if (resourceSet == null)
-            throw new IllegalArgumentException("resourceSet may not be null.");
-        Object o = 
-                resourceSet.getResourceFactoryRegistry()
-                .getProtocolToFactoryMap().get(LadURIHelperConstants.PROTOCOL);
-        if (o != null && !(o instanceof ITypeProvider)) {
-            StatusManager.getManager().addLoggedStatus(new Status(IStatus.WARNING, "de.menges.metamodel",
-                    "MengesTypeProviderFactory: Dieser Fall sollte nicht mehr auftreten!!"
-            		+ " Kommt im Moment wahrscheinlich daher, dass noch Sprachen ohne unseren"
-            		+ " MengesGlobalScopeProvider im Spiel sind. "));
-            return new TypeProvider(resourceSet);
-        }
-        return (ITypeProvider) o; 
-    }
+	/**
+	 * Create a new type provider or fetch the already created type provider for the primitive
+	 * types.
+	 * 
+	 * @param resourceSet
+	 *            The resource set associated with the type provider.
+	 * @return Returns the type provider for primitive types.
+	 */
+	public ITypeProvider getTypeProvider(ResourceSet resourceSet) {
+		if (resourceSet == null) {
+			throw new IllegalArgumentException("resourceSet may not be null.");
+		} else {
+			ITypeProvider result = findTypeProvider(resourceSet);
+			if (result != null)
+				return result;
+			else
+				return createTypeProvider(resourceSet);
+		}
+	}
 
-    /**
-     * {@inheritDoc}
-     */
-    public ITypeProvider findOrCreateTypeProvider(ResourceSet resourceSet) {
-        if (resourceSet == null)
-            throw new IllegalArgumentException("resourceSet may not be null.");
-        ITypeProvider result = findTypeProvider(resourceSet);
-        if (result != null)
-            return result;
-        return createTypeProvider(resourceSet);
-    }
+	/**
+	 * Create a new type provider for primitive types.
+	 * 
+	 * @param resourceSet
+	 *            The resource set associated with the type provider.
+	 * @return Returns the new type provider.
+	 */
+	private ITypeProvider createTypeProvider(ResourceSet resourceSet) {
+		if (resourceSet == null) {
+			throw new IllegalArgumentException("resourceSet may not be null.");
+		} else {
+			ITypeProvider typeProvider = new TypeProvider(resourceSet);
+			resourceSet.getResourceFactoryRegistry().getProtocolToFactoryMap()
+			        .put(LadURIHelperConstants.PROTOCOL, typeProvider);
+			return typeProvider;
+		}
+	}
 
-    /**
-     * {@inheritDoc}
-     */
-    public ITypeProvider createTypeProvider() throws UnsupportedOperationException {
-        return createTypeProvider(new ResourceSetImpl());
-    }
-    
+	/**
+	 * Find the existing type provider for a given resource set.
+	 * 
+	 * @param resourceSet
+	 * @return
+	 */
+	private ITypeProvider findTypeProvider(ResourceSet resourceSet) {
+		if (resourceSet == null)
+			throw new IllegalArgumentException("resourceSet may not be null.");
+		Object o = resourceSet.getResourceFactoryRegistry().getProtocolToFactoryMap()
+		        .get(LadURIHelperConstants.PROTOCOL);
+		if (o != null && !(o instanceof ITypeProvider)) {
+			// something went terribly wrong, to be save create a new type provider
+			return new TypeProvider(resourceSet);
+		} else {
+			return (ITypeProvider) o;
+		}
+	}
+
 }

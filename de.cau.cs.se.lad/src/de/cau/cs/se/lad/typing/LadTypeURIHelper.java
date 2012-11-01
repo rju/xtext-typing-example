@@ -1,7 +1,7 @@
 /*
- * KIELER - Kiel Integrated Environment for Layout Eclipse RichClient
- *
- * http://www.informatik.uni-kiel.de/rtsys/kieler/
+ * Science Blog 
+ * 
+ * http://www.se.informatik.uni-kiel.de
  * 
  * Copyright 2012 by
  * + Christian-Albrechts-University of Kiel
@@ -17,7 +17,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.xtext.common.types.access.jdt.TypeURIHelper;
 
 /**
- * @author chsch
+ * @author Christian Schneider
  */
 public class LadTypeURIHelper extends TypeURIHelper {
 

@@ -1,7 +1,7 @@
 /*
  * Science Blog
  *
- * http://www.informatik.uni-kiel.de/rtsys/kieler/
+ * http://www.se.informatik.uni-kiel.de
  * 
  * Copyright 2012 by
  * + Christian-Albrechts-University of Kiel
@@ -22,24 +22,33 @@ import de.cau.cs.se.lad.types.PrimitiveType;
 import de.cau.cs.se.lad.types.Type;
 
 /**
- * 
+ * @author Christian Schneider - Initial contribution
  */
 public class PrimitiveMirror {
 
-	private final ITypeFactory<String> typeFactory;
+	private final ITypeFactory<String> typeFactory; // type factory, which is able to return types
+													// based on their names
 
-	public PrimitiveMirror(ITypeFactory<String> typeProvider) {
-		this.typeFactory = typeProvider;
+	/**
+	 * Constructs the primitive mirror. It requires a type factory for primitive types described
+	 * with strings.
+	 * 
+	 * @param typeFactory The type factory
+	 */
+	public PrimitiveMirror(ITypeFactory<String> typeFactory) {
+		this.typeFactory = typeFactory;
 	}
 
-	// TODO what does that method do. It is called by:
-	// XtextResource and TypeResource
 	/**
 	 * Searches for an object in a resource described by a fragment.
 	 * 
+	 * @param resource
+	 * @param fragment
+	 * @param fallback
+	 * @return
 	 */
-	public EObject getEObject(Resource resource, String fragment,
-	        IFragmentProvider.Fallback fallback) {
+	public EObject getEObject(final Resource resource, final String fragment,
+	        final IFragmentProvider.Fallback fallback) {
 		for (EObject obj : resource.getContents()) {
 			String otherFragment = getFragment(obj, fallback);
 			if (fragment.equals(otherFragment))
@@ -50,13 +59,14 @@ public class PrimitiveMirror {
 
 	// TODO Why do we need to hide something we do not inherit?
 	/**
-	 * This specialization is introduced to hide the JVMType filtering. {@inheritDoc}
+	 * This specialisation is introduced to hide the JVMType filtering. {@inheritDoc}
 	 */
 	public String getFragment(EObject obj, IFragmentProvider.Fallback fallback) {
 		if (TypesPackage.eINSTANCE.getPrimitiveType().isInstance(obj)) {
 			return ((PrimitiveType) obj).getName();
+		} else {
+			return fallback.getFragment(obj);
 		}
-		return fallback.getFragment(obj);
 	}
 
 	/**
